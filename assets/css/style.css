@@ -94,6 +94,26 @@ text-align: center;
   height: 150px;
   width: 70px;
 }
+.card{
+  padding: 0 12px;
+  position: relative;
+}
+.container-fluid{
+  background-color:rgb(69, 127, 131);
+  width: 100%;
+  margin-top:50px;
+}
+
+.card-deck{
+  margin-top:50px;
+}
+.page-footer{
+  background-color: gray;
+  margin-top:50px;
+}
+.a{
+  text-decoration-color: honeydew;
+}
 
 .social_icon{
 position: absolute;
