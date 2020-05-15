@@ -79,7 +79,7 @@ text-align: center;
   right: 15px;
   left: 15px;
 }
-.item p{
+.item a{
   position: absolute;
   color: white;
   margin: 0 auto;
