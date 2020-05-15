@@ -94,10 +94,7 @@ text-align: center;
   height: 150px;
   width: 70px;
 }
-.card{
-  padding: 0 12px;
-  position: relative;
-}
+
 .container-fluid{
   background-color:rgb(69, 127, 131);
   width: 100%;
