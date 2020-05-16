@@ -104,7 +104,14 @@ text-align: center;
 }
 
 .card-deck{
+  margin-top:30px;
+}
+.Bola{
+  text-align: center;
   margin-top:50px;
+}
+.Bola img{
+  margin-bottom: 20px;
 }
 .push{
   margin-top:50px;
