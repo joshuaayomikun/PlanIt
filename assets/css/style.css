@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Numans');
+@import url();
 
 .owl-carousel
 {
@@ -25,7 +25,9 @@
 .carousel-item img {
   height: 600px;
 }
-
+.carousel-item text{
+color: green;
+}
 body{
 background-image:('');
 background-size: cover;
@@ -104,8 +106,14 @@ text-align: center;
 .card-deck{
   margin-top:50px;
 }
+.push{
+  margin-top:50px;
+  padding-top: 30px;
+text-align: center;
+background-color: #583d5c;;
+}
 .page-footer{
-  background-color: gray;
+  background-color:#583d5c;
   margin-top:50px;
 }
 .a{
