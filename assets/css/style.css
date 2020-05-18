@@ -121,6 +121,7 @@ background-color: #583d5c;;
 }
 .page-footer{
   background-color:#583d5c;
+  color: white;
   margin-top:50px;
 }
 .a{
@@ -157,16 +158,24 @@ height: 20px;
 margin-left: 15px;
 margin-right: 5px;
 }
-
-.login_btn{
-color: black;
-background-color: #FFC312;
-width: 100px;
+.login body {
+  margin: 0;
+  padding: 0;
+  background-color: #2e3a3b;
+  height: 100vh;
 }
-
-.login_btn:hover{
-color: black;
-background-color: white;
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 320px;
+  border: 1px solid #9C9C9C;
+  background-color: #EAEAEA;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
 }
 
 .links{
@@ -176,3 +185,10 @@ color: white;
 .links a{
 margin-left: 4px;
 }
+ .joy{
+  margin-top: 50px;
+  bottom: 0;
+background-color:transparent;
+}
+
+
