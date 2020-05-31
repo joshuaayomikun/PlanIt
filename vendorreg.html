@@ -65,65 +65,51 @@
 <div class="container" style="margin: 30px;">
   <h2><b>Become a Proud Vendor</b></h2>
   <!-- <p>In this example, we use <code>.was-validated</code> to indicate what's missing before submitting the form:</p> -->
-  <form action="/action_page.php" class="was-validated">
-    <div class="form-group">
-      <label for="uname">Company Name:</label>
-      <input type="text" class="form-control" id="uname" placeholder="Enter Company Name" name="uname" required>
-      <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div>
+  <form action="/action_page.php">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="uname">Company Name:</label>
+          <input type="text" class="form-control" id="uname" placeholder="Enter Company Name" name="uname" required>
+        </div>
+      </div>
     </div>
-    <!-- <div class="form-group">
-      <label for="uname">Lastname:</label>
-      <input type="text" class="form-control" id="uname" placeholder="Enter Lastname" name="uname" required>
-      <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div>
-    </div> -->
-    <div class="form-group">
-      <label for="uname">Email:</label>
-      <input type="text" class="form-control" id="uname" placeholder="Enter email" name="uname" required>
-      <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div>
+    <div class="row">
+      <div class="col-md-6">
+         <div class="form-group">
+          <label for="uname">Email:</label>
+          <input type="text" class="form-control" id="uname" placeholder="Enter email" name="uname" required>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+        <label for="uname">PhoneNumber:</label>
+        <input type="text" class="form-control" id="uname" placeholder="Enter PhoneNumber" name="uname" required>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="uname">PhoneNumber:</label>
-      <input type="text" class="form-control" id="uname" placeholder="Enter PhoneNumber" name="uname" required>
-      <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div>
     </div>
-    <div class="form-group">
-      <label for="pwd">Address</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter Address" name="pswd" required>
-      <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div>
+    <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="pwd">Address</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Enter Address" name="pswd" required>
+      </div>
     </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
     <div class="form-group">
-      I offer these services <small>please select as much as you can<small>
+      I offer these services, <small>please select as much as you can<small>
     <div class="list-group">
       
-      <button type="button" class="list-group-item list-group-item-action">
-        <input type="checkbox" value="DJ"> DJ
-      </button>
-      <button type="button" class="list-group-item list-group-item-action"><input type="checkbox" value="Makeup Artist"> Makeup Artist</button>
-      <button type="button" class="list-group-item list-group-item-action"><input type="checkbox" value="Event Hall"> Event Hall</button>
-      <button type="button" class="list-group-item list-group-item-action"><input type="checkbox" value="Photography"> Photography</button>
-      <button type="button" class="list-group-item list-group-item-action"><input type="checkbox" value="Caterers"> Caterers</button>
-      <button type="button" class="list-group-item list-group-item-action"><input type="checkbox" value="Caterers"> Drink Vendor</button>
-    </div>
+      <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="DJ"> DJ</button>
+      <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="Makeup Artist"> Makeup Artist</button>
+      <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="Event Hall"> Event Hall</button>
+      <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="Photography"> Photography</button>
+      <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="Caterers"> Caterers</button>
+      <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="Caterers"> Drink Vendor</button>
+    </div></div></div>
   </div>
-      <br>
-    <!-- <div class="form-group">
-      <label for="pwd">Confirm Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter confirm password" name="pswd" required>
-      <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div>
-    </div>
-    <div class="form-group form-check">
-      <label class="form-check-label">
-        <input class="form-check-input" type="checkbox" name="remember" required> I agree with the terms and condition.
-        <div class="valid-feedback">Valid.</div>
-        <div class="invalid-feedback">Check this checkbox to continue.</div>
-      </label>
-    </div> -->
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
   </div>
@@ -260,6 +246,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
+<script>
+  $(document).ready(function(){
+    $(".service").on('click', selectservice);
+    
+    async function selectservice(e){
+      e.preventDefault();
+      const button =  e.currentTarget;
+      debugger
+      button.querySelector("input[type='checkbox']").checked = !button.querySelector("input[type='checkbox']").checked;
+      button.classList.toggle("active")
+    }
+  });
+</script>
 </body>
 </html>
