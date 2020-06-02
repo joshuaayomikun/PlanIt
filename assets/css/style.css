@@ -1,4 +1,4 @@
-@import url();
+@import url('https://fonts.googleapis.com/css?family=Numans');
 
 .owl-carousel
 {
@@ -25,9 +25,7 @@
 .carousel-item img {
   height: 600px;
 }
-.carousel-item text{
-color: green;
-}
+
 body{
 background-image:('');
 background-size: cover;
@@ -37,7 +35,7 @@ font-family: 'Numans', sans-serif;
 }
 
 .container{
-/* height: 100%; */
+height: 100%;
 align-content: center;
 }
 
@@ -81,7 +79,7 @@ text-align: center;
   right: 15px;
   left: 15px;
 }
-.item a{
+.item p{
   position: absolute;
   color: white;
   margin: 0 auto;
@@ -96,38 +94,23 @@ text-align: center;
   height: 150px;
   width: 70px;
 }
-
+.card{
+  padding: 0 12px;
+  position: relative;
+}
 .container-fluid{
-  background-color:rgb(69, 127, 131);
+  background-color:rgba(156, 153, 158, 0.349);
   width: 100%;
   margin-top:50px;
 }
 
 .card-deck{
-  margin-top:30px;
-}
-.Bola{
-  text-align: center;
   margin-top:50px;
 }
-.Bola img{
-  margin-bottom: 20px;
-}
-.push{
-  margin-top:30px;
-  padding-top: 30px;
-text-align: center;
-background-color: silver;;
-}
-.page-footer{
-  background-color:silver;
-  color: black;
-  margin-top:50px;
-}
-.page-footer a {
-  color:black;
-  /* text-decoration: none; */
-  /* background-color: transparent; */
+.page-footer {
+  background-color: rgba(156, 153, 158, 0.349);
+  color: white;
+  margin-top: 50px;
 }
 .a{
   text-decoration-color: honeydew;
@@ -163,24 +146,16 @@ height: 20px;
 margin-left: 15px;
 margin-right: 5px;
 }
-.login body {
-  margin: 0;
-  padding: 0;
-  background-color: #2e3a3b;
-  height: 100vh;
+
+.login_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
 }
-#login .container #login-row #login-column #login-box {
-  margin-top: 120px;
-  max-width: 600px;
-  height: 320px;
-  border: 1px solid #9C9C9C;
-  background-color: #EAEAEA;
-}
-#login .container #login-row #login-column #login-box #login-form {
-  padding: 20px;
-}
-#login .container #login-row #login-column #login-box #login-form #register-link {
-  margin-top: -85px;
+
+.login_btn:hover{
+color: black;
+background-color: white;
 }
 
 .links{
@@ -189,15 +164,4 @@ color: white;
 
 .links a{
 margin-left: 4px;
-}
- .joy{
-  margin-top: 50px;
-  bottom: 0;
-background-color:transparent;
-}
-.form-control.is-valid, .was-validated .form-control:valid {
-  border-color: black;
-  padding-right: calc(1.5em + .75rem);
-  background-repeat: no-repeat;
-  background-size: calc(.75em + .375rem) calc(.75em + .375rem);
 }
