@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>ADMIN</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Jekyll v4.0.1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- Bootstrap core CSS -->
+  <link href="../assets/css/dashboard.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+  <!-- Custom styles for this template -->
+  <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="../homepagee.html">Plan your event</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+      data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <a class="nav-link" href="#">Sign out</a>
+      </li>
+    </ul>
+  </nav>
+ 
+    <div class="container-fluid">
+      <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+          <div class="sidebar-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <span data-feather="home"></span>
+                  Dashboard <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file"></span>
+                  Orders
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="shopping-cart"></span>
+                  Products
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="customer.html">
+                  <span data-feather="users"></span>
+                  Customers
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="bar-chart-2"></span>
+                  Reports
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="layers"></span>
+                  Integrations
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <main role="main">
+        <div class="container-fluid">
+          <!-- <h2>Card Deck</h2>
+  <p>The .card-deck class creates an <strong>equal height and width</strong> grid of cards. The layout will automatically adjust as you insert more cards.</p>
+  <p>In this example we have added extra content to the first card, to make it taller. Notice how the other cards follow.</p>
+  <p><strong>Note:</strong> The cards are displayed vertically on small screens (less than 576px):</p> -->
+          <div class="card-deck" style="color: white;">
+            <div class="card bg-primary">
+              <div class="card-body text-center">
+                <p class="card-text">Orders Recieved</p><br>
+                <p class="card-text"><i class='fas fa-cart-arrow-down' style='font-size:24px'></i> 236</p>
+                <p class="card-text">Completed Orders 35</p>
+                <p class="card-text"></p>
+              </div>
+            </div>
+            <div class="card bg-warning">
+              <div class="card-body text-center">
+                <p class="card-text">Total Sales</p><br>
+                <p class="card-text"><i class='far fa-bookmark' style='font-size:24px'></i> 1234</p>
+                <p class="card-text">This Month 500</p>
+              </div>
+            </div>
+            <div class="card bg-success">
+              <div class="card-body text-center">
+                <p class="card-text">Revenue</p><br>
+                <p class="card-text"><i class='fas fa-comment-dollar' style='font-size:24px'></i> #24,500</p>
+                <p class="card-text">This Month #10,000</p>
+              </div>
+            </div>
+            <div class="card bg-danger">
+              <div class="card-body text-center">
+                <p class="card-text">Total Profit</p><br>
+                <p class="card-text"><i class='far fa-credit-card' style='font-size:24px'></i> #50,000</p>
+                <p class="card-text">This Month #30,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Invoice#</th>
+              <th scope="col">Customer Name</th>
+              <th scope="col">Status</th>
+              <th scope="col">Due</th>
+              <th scope="col">Ammount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">INV-OO141</th>
+              <td>Elizabeth Gift</td>
+              <td>Paid</td>
+              <td>10/6/2020</td>
+              <td>50,000</td>
+            </tr>
+            <tr>
+              <th scope="row">INV-OO151</th>
+              <td>Jacob Bird</td>
+              <td>Paid</td>
+              <td>10/6/2020</td>
+              <td>30,000</td>
+            </tr>
+            <tr>
+              <th scope="row">INV-OO153</th>
+              <td>Larry Scope</td>
+              <td>Not Paid</td>
+              <td>13/6/2020</td>
+              <td>70,000</td>
+            </tr>
+            <tr>
+              <th scope="row">INV-OO154</th>
+              <td>Oreoluwa Joy </td>
+              <td>Paid</td>
+              <td>13/6/2020</td>
+              <td>75,000</td>
+            </tr>
+          </tbody>
+        </table>
+  </main>
+</div>
+</div>
+
+  <!-- Footer -->
+  <!-- <footer class="page-footer font-small indigo"> -->
+
+  <!-- Footer Links -->
+  <!-- <div class="container text-center text-md-left">
+
+    Grid row -->
+  <!-- <div class="row">
+
+      Grid column -->
+  <!-- <div class="col-md-3 mx-auto"> -->
+
+  <!-- Links -->
+  <!-- <h5 class="font-weight-bold text-uppercase mt-3 mb-4">COMPANY</h5> -->
+
+  <!-- <ul class="list-unstyled"> -->
+  <!-- <li>
+            <a href="#!">About</a>
+          </li> -->
+  <!-- <li>
+            <a href="#!">How It Works</a>
+          </li>
+          <li>
+            <a href="#!">Terms and Condition</a> -->
+  <!-- </li>
+          <li>
+            <a href="#!">Privacy Policy</a>
+          </li>
+        </ul>  -->
+  <!-- </div> -->
+  <!-- Grid column -->
+
+  <!-- <hr class="clearfix w-100 d-md-none"> -->
+
+  <!-- Grid column -->
+  <!-- <div class="col-md-3 mx-auto"> -->
+
+  <!-- Links -->
+  <!-- <h5 class="font-weight-bold text-uppercase mt-3 mb-4">DISCOVER</h5> -->
+
+  <!-- <ul class="list-unstyled"> -->
+  <!-- <li>
+            <a href="#!">Cake Vendors</a>
+          </li>
+          <li>
+            <a href="#!">Caterers</a> -->
+  <!-- </li>
+          <li>
+            <a href="#!">Event Planners</a>
+          </li>
+          <li> -->
+  <!-- <a href="#!">Photographers</a>
+          </li>
+          <li>
+            <a href="#!">Makeup Artists</a>
+          </li>
+        </ul> -->
+
+  <!-- </div> -->
+  <!-- Grid column -->
+
+  <!-- <hr class="clearfix w-100 d-md-none"> -->
+
+  <!-- Grid column -->
+  <!-- <div class="col-md-3 mx-auto"> -->
+
+  <!-- Links -->
+  <!-- <h5 class="font-weight-bold text-uppercase mt-3 mb-4">TOP STATES</h5> -->
+
+  <!-- <ul class="list-unstyled">
+          <li>
+            <a href="#!">Lagos</a>
+          </li>
+          <li> -->
+  <!-- <a href="#!">Abuja</a>
+          </li>
+          <li>
+            <a href="#!">Oyo</a>
+          </li>
+          <li> -->
+  <!-- <a href="#!">Rivers</a>
+          </li>
+        </ul>
+
+      </div> -->
+  <!-- Grid column -->
+
+  <!-- <hr class="clearfix w-100 d-md-none"> -->
+
+  <!-- Grid column -->
+  <!-- <div class="col-md-3 mx-auto"> -->
+
+  <!-- Links -->
+  <!-- <h5 class="font-weight-bold text-uppercase mt-3 mb-4">CONNECT</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!">Contact Us</a>
+          </li>
+          <li>
+            <a href="#!">Facebook</a>
+          </li>
+          <li>
+            <a href="#!">Instagram</a>
+          </li> -->
+  <!-- <li>
+            <a href="#!">Facebook</a>
+          </li>
+        </ul>
+
+      </div> -->
+  <!-- Grid column -->
+
+  <!-- </div> -->
+  <!-- Grid row -->
+
+  <!-- </div>  -->
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <!-- <div class="footer-copyright text-center py-3">©️ 2020 Copyright:
+    <a href="https://mdbootstrap.com/"> Dami.com</a>
+  </div> -->
+  <!-- Copyright -->
+
+  <!-- </footer> -->
+  <!-- Footer -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+  <script src="../assets/dist/js/bootstrap.bundle.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <script src="../assets/js/dashboard.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+</body>
+
+</html>
