@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>BOOKED SERVICES</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.0.1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/css/dashboard.css" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <!-- Custom styles for this template -->
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="../homepagee.html">Plan your event</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+            data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#">Sign out</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="sidebar-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="Bookedservies.html">
+                                <span data-feather="home"></span>
+                                Bookedservies<span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">
+                                <span data-feather="file"></span>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Bookedservies.html">
+                                <span data-feather="shopping-cart"></span>
+                                Event
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="user.html">
+                                <span data-feather="users"></span>
+                                Users
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span data-feather="bar-chart-2"></span>
+                                Reports
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="createservice.html">
+                                <span data-feather="layers"></span>
+                                Menu
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="createservice.html">
+                                <span data-feather="layers"></span>
+                                Create Service
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+                <div class="table-responsive">
+                    <table class="table">
+                        <p>
+                        <h2>Booked Services</h2>
+                        </p>
+                        <thead>
+                            <tr>
+                                <th scope="col">Name Of Customer</th>
+                                <th scope="col">Day Booked</th>
+                                <th scope="col">Ammount Page</th>
+                                <th scope="col">Service type paid for</th>
+                                <th scope="col">Date of the Event</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Peace Joy</th>
+                                <td>12/05/2020</td>
+                                <td>#150,000</td>
+                                <td>Catering Service</td>
+                                <td>20/06/2020</td>
+                                <td>
+                                    <div class="container">
+                                        <button type="button" class="btn btn-secondary" data-toggle="modal"
+                                            data-target="#myModal">
+                                            View Booking
+                                        </button>
+
+                                        <!-- The Modal -->
+                                        <div class="modal fade" id="myModal">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+
+                                                    <!-- Modal Header -->
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Peace Joy</h4>
+                                                        <button type="button" class="close"
+                                                            data-dismiss="modal">&times;</button>
+                                                    </div>
+
+                                                    <!-- Modal body -->
+                                                    <div class="modal-body">
+                                                        Booked catering service, on 12/05/2020, paid #150,000, catering
+                                                        service is needed on 20/06/2020
+                                                    </div>
+
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger"
+                                                            data-dismiss="modal">Close</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Oreoluwa Grace</th>
+                                <td>09/05/2020</td>
+                                <td>#50,000</td>
+                                <td>Photography Service</td>
+                                <td>12/06/2020</td>
+                                <td>
+                                    <div class="container">
+                                        <button type="button" class="btn btn-secondary" data-toggle="modal"
+                                            data-target="#myModal">
+                                            View Booking
+                                        </button>
+
+                                        <!-- The Modal -->
+                                        <div class="modal fade" id="myModal">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+
+                                                    <!-- Modal Header -->
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Oreoluwa Grace</h4>
+                                                        <button type="button" class="close"
+                                                            data-dismiss="modal">&times;</button>
+                                                    </div>
+
+                                                    <!-- Modal body -->
+                                                    <div class="modal-body">
+                                                        Booked Photography Service, on 09/05/2020, paid
+                                                        #50,000,Photography Service is needed on 12/06/2020
+                                                    </div>
+
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger"
+                                                            data-dismiss="modal">Close</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Malt Betty</th>
+                                <td>20/04/2020</td>
+                                <td>#90,000</td>
+                                <td>Makeup Service</td>
+                                <td>20/05/2020</td>
+                                <td>
+                                    <div class="container">
+                                        <button type="button" class="btn btn-secondary" data-toggle="modal"
+                                            data-target="#myModal">
+                                            View Booking
+                                        </button>
+
+                                        <!-- The Modal -->
+                                        <div class="modal fade" id="myModal">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+
+                                                    <!-- Modal Header -->
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Malt Betty</h4>
+                                                        <button type="button" class="close"
+                                                            data-dismiss="modal">&times;</button>
+                                                    </div>
+
+                                                    <!-- Modal body -->
+                                                    <div class="modal-body">
+                                                        Booked Makeup Service, on 20/04/2020, paid #90,000,Makeup
+                                                        Service is needed on 20/05/2020
+                                                    </div>
+
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger"
+                                                            data-dismiss="modal">Close</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Lizzy Bola</th>
+                                <td>2/05/2020</td>
+                                <td>#40,000</td>
+                                <td>Dj Service</td>
+                                <td>20/04/2020</td>
+                                <td>
+                                    <div class="container">
+                                        <button type="button" class="btn btn-secondary" data-toggle="modal"
+                                            data-target="#myModal">
+                                            View Booking
+                                        </button>
+
+                                        <!-- The Modal -->
+                                        <div class="modal fade" id="myModal">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+
+                                                    <!-- Modal Header -->
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Lizzy Bola</h4>
+                                                        <button type="button" class="close"
+                                                            data-dismiss="modal">&times;</button>
+                                                    </div>
+
+                                                    <!-- Modal body -->
+                                                    <div class="modal-body">
+                                                        Booked Dj Service, on 2/05/2020, paid #40,000,Dj Service is
+                                                        needed on 20/04/2020
+                                                    </div>
+
+                                                    <!-- Modal footer -->
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger"
+                                                            data-dismiss="modal">Close</button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Beauty Cup</th>
+                                <td>20/03/2020</td>
+                                <td>#70,000</td>
+                                <td>Drink Vendor Service</td>
+                                <td>20/04/2020</td>
+                                <td><button type="button" class="btn btn-secondary" data-toggle="modal"
+                                        data-target="#myModal">
+                                        View Booking
+                                    </button>
+
+                                    <!-- The Modal -->
+                                    <div class="modal fade" id="myModal">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Beauty Cup</h4>
+                                                    <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
+                                                </div>
+
+                                                <!-- Modal body -->
+                                                <div class="modal-body">
+                                                    Drink Vendor Service, on 20/03/2020, paid #70,000,Dj Service is
+                                                    needed on 20/04/2020
+                                                </div>
+
+                                                <!-- Modal footer -->
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger"
+                                                        data-dismiss="modal">Close</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                </div>
+                </td>
+                </tr>
+                <tr>
+                    <th scope="row">Juliet Walters</th>
+                    <td>22/05/2020</td>
+                    <td>#200,000</td>
+                    <td>Event Hall Service</td>
+                    <td>20/07/2020</td>
+                    <td><button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">
+                            View Booking
+                        </button>
+
+                        <!-- The Modal -->
+                        <div class="modal fade" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Juliet Walters</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        Event Hall Service, on 22/05/2020, paid #200,000,Event Hall Service is needed on
+                                        20/07/2020
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+        </div>
+        </td>
+        </tr>
+        </table>
+    </div>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
