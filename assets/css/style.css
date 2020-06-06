@@ -1,5 +1,6 @@
 @import url();
 
+
 .owl-carousel
 {
   position: relative;
@@ -7,13 +8,15 @@
   padding-right: 20px;
   display: flex;
 }
+
 .owl-prev
 {
   position: absolute;
-    left: 0;
-    top: 25%;
-    font-size: 25px !important;
+  left: 0;
+  top: 25%;
+  font-size: 25px !important;
 }
+
 .owl-next
 {
   position: absolute;
@@ -25,20 +28,17 @@
 .carousel-item img {
   height: 600px;
 }
+
 .carousel-item text{
-color: green;
+  color: green;
 }
+
 body{
 background-image:('');
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
 font-family: 'Numans', sans-serif;
-}
-
-.container{
-/* height: 100%; */
-align-content: center;
 }
 
 .card{
@@ -95,12 +95,6 @@ text-align: center;
   .item img {
   height: 150px;
   width: 70px;
-}
-
-.container-fluid{
-  background-color:rgb(69, 127, 131);
-  width: 100%;
-  margin-top:50px;
 }
 
 .card-deck{
@@ -195,6 +189,7 @@ margin-left: 4px;
   bottom: 0;
 background-color:transparent;
 }
+
 .form-control.is-valid, .was-validated .form-control:valid {
   border-color: black;
   padding-right: calc(1.5em + .75rem);
