@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height: 76px;">
     <div class="container-fluid px-md-5">
     <a class="navbar-brand" href="index.html">Plan Your Event</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -26,30 +26,20 @@
           <a class="nav-link" href="homepagee.html">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Vendor</a>
+          <a class="nav-link" href="vendorpage.html">Vendors</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="pay.html">Book</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="customerregistration.html">User Signup</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">About Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-        Register</a><div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="customerregistration.html">User</a>
-          <a class="dropdown-item" href="vendorreg.html"> Vendor</a>
-         
-        </div>
+          <a class="nav-link" href="vendorreg.html"> Vendor Registration</a>
         </li>
         <li class="nav-item">
           <a class="nav-link login btn-outline-light btn" href="login.html">Login</a>
         </li>
-
       </ul>
       
     </div>
@@ -63,34 +53,34 @@
       <div class="carousel-item active">
         <div class="div-overlay"></div>
         <img src="assets/img/event2.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h2>WE PLAN...</h2>
-          <p>YOUR PARTY</p>
+        <div class="carousel-caption d-md-block">
+          <h2>WE CREATE</h2>
+          <p>YOU CELEBRATE</p>
         </div>
       </div>
       <div class="carousel-item">
         <div class="div-overlay"></div>
         <img src="assets/img/architecture-auditorium-blue-bright-colours-382297.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>WE WORK HARD</h5>
-          <p>TO MAKE YOUR EVENT PERFECT</p>
+        <div class="carousel-caption d-md-block">
+          <h5>SIT BACK WHILE WE CREATE EXPERIENCE OF A LIFETIME</h5>
+          <!-- <p>TO MAKE YOUR EVENT PERFECT</p> -->
         </div>
       </div>
       <div class="carousel-item">
         <div class="div-overlay"></div>
         <img src="assets/img/beach-wedding-ceremony-during-daytime-169198.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>EXCELLENCE IS SIMPLICITY</h5>
-          <p>CREATIVE.</p>
+        <div class="carousel-caption d-md-block">
+          <h5>YOUR OCCASSION DESERVES</h5>
+          <p>OUR CAREFUL PLANNING</p>
         </div>
       </div>
     </div>
   </div>
   <div class="container">
     <div class="josh">
-      <h2>Browse by categories</h2>
+      <h2 class="py-3">Browse by categories</h2>
       <b>
-        <h4>Find vendors in the category of your choice</h4>
+        <h4 class="py-2">Find vendors in the category of your choice</h4>
       </b>
 
       <!-- The four columns -->
@@ -125,7 +115,7 @@
           <div class="item">
             <div></div>
             <a href="eventcenter.html" class="">Event Hall</a>
-            <img src="assets/img/beach-wedding-ceremony-during-daytime-169198.jpg" alt="Bridal Makeup">
+            <img src="assets/img/hall.jpg" alt="Bridal Makeup">
           </div>
           <div class="item">
             <div></div>
@@ -144,8 +134,8 @@
   </div>
     <div class="container">
       <div class="josh">
-        <h2>Top deals for you</h2>
-        <h4>Handpicked discounted products from our best vendors</h4>
+        <h2 class="py-3">Top deals for you</h2>
+        <h4 class="py-2">Handpicked discounted products from our best vendors</h4>
       </div>
       <div class="card-deck">
         <div class="card">
@@ -157,7 +147,7 @@
           </div>
         </div>
         <div class="card">
-          <img class="card-img-top" src="assets/img/2.jpg" alt="Card image cap">
+          <img class="card-img-top" src="assets/img/2.jpeg" alt="Card image cap">
           <div class="card-body">
             <a href="Birthday.html" class="card-link">Birthday cake</a>
             <p class="card-text">₦ 8,000</p>
@@ -203,39 +193,39 @@
       </div>
     </div>
 
+    <section class="bg-secondary text-white py-5">
     <div class="container">
-      <div class="push">
-      <h2>Here's how it works...</h2>
+      <h2 class="text-center pb-4">Here's how it works...</h2>
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
-          <h2>SEARCH</h2>
+          <h2 class="text-center pb-2">SEARCH</h2>
           <p>Search for the service(s) you need and get to explore pictures,
             prices, and reviews of available vendors.
           </p>
           <!-- <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p> -->
         </div>
         <div class="col-md-4">
-          <h2>Call Vendor</h2>
+          <h2 class="text-center pb-2">Call Vendor</h2>
           <p>Simply enter your phone number and we'll text you the vendor's<br> verified contact instantly so you can follow up.</p>
           <!-- <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p> -->
         </div>
         <div class="col-md-4">
-          <h2>Book & Enjoy</h2>
+          <h2 class="text-center pb-2">Book & Enjoy</h2>
           <p>Finalize details with the vendor and have them deliver the requested service(s)</p>
           <!-- <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p> -->
         </div>
       </div>
     </div>
-    </div>
-    <div class="class">
+    </section>
+    <!-- <div class="class">
       <p style="text-align: center; margin-top: 30px;"> Leave a Comment</p>
       <label for="comment">Comment:</label>
       <textarea class="form-control" rows="5" id="comment"></textarea>
       <button type="submit" class="btn btn-secondary">Submit</button>
-    </div>
+    </div> -->
     <!-- Footer -->
-    <footer class="page-footer font-small indigo">
+    <footer class="page-footer font-small bg-dark text-white">
 
       <!-- Footer Links -->
       <div class="container text-center text-md-left">
@@ -247,20 +237,20 @@
           <div class="col-md-3 mx-auto">
 
             <!-- Links -->
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">COMPANY</h5>
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4 company-link">COMPANY</h5>
 
             <ul class="list-unstyled">
               <li>
-                <a href="#!">About</a>
+                <a href="#!" class="footer-link">About</a>
               </li>
               <li>
-                <a href="#!">How It Works</a>
+                <a href="#!" class="footer-link">How It Works</a>
               </li>
               <li>
-                <a href="#!">Terms and Condition</a>
+                <a href="#!" class="footer-link">Terms and Condition</a>
               </li>
               <li>
-                <a href="#!">Privacy Policy</a>
+                <a href="#!" class="footer-link">Privacy Policy</a>
               </li>
             </ul>
 
@@ -273,23 +263,23 @@
           <div class="col-md-3 mx-auto">
 
             <!-- Links -->
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">DISCOVER</h5>
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4 discover-link">DISCOVER</h5>
 
             <ul class="list-unstyled">
               <li>
-                <a href="#!">Cake Vendors</a>
+                <a href="#!" class="footer-link">Cake Vendors</a>
               </li>
               <li>
-                <a href="#!">Caterers</a>
+                <a href="#!" class="footer-link">Caterers</a>
               </li>
               <li>
-                <a href="#!">Event Planners</a>
+                <a href="#!" class="footer-link">Event Planners</a>
               </li>
               <li>
-                <a href="#!">Photographers</a>
+                <a href="#!" class="footer-link">Photographers</a>
               </li>
               <li>
-                <a href="#!">Makeup Artists</a>
+                <a href="#!" class="footer-link">Makeup Artists</a>
               </li>
             </ul>
 
@@ -302,20 +292,20 @@
           <div class="col-md-3 mx-auto">
 
             <!-- Links -->
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">TOP STATES</h5>
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4 state-link">TOP STATES</h5>
 
             <ul class="list-unstyled">
               <li>
-                <a href="#!">Lagos</a>
+                <a href="#!" class="footer-link">Lagos</a>
               </li>
               <li>
-                <a href="#!">Abuja</a>
+                <a href="#!" class="footer-link">Abuja</a>
               </li>
               <li>
-                <a href="#!">Oyo</a>
+                <a href="#!" class="footer-link">Oyo</a>
               </li>
               <li>
-                <a href="#!">Rivers</a>
+                <a href="#!" class="footer-link">Rivers</a>
               </li>
             </ul>
 
@@ -328,20 +318,20 @@
           <div class="col-md-3 mx-auto">
 
             <!-- Links -->
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">CONNECT</h5>
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4 social-link">CONNECT</h5>
 
             <ul class="list-unstyled">
               <li>
-                <a href="#!">Contact Us</a>
+                <a href="#!" class="footer-link">Contact Us</a>
               </li>
               <li>
-                <a href="#!">Facebook</a>
+                <a href="#!" class="footer-link">Facebook</a>
               </li>
               <li>
-                <a href="#!">Instagram</a>
+                <a href="#!" class="footer-link">Instagram</a>
               </li>
               <li>
-                <a href="#!">Facebook</a>
+                <a href="#!" class="footer-link">Facebook</a>
               </li>
             </ul>
 
@@ -356,7 +346,7 @@
 
       <!-- Copyright -->
       <div class="footer-copyright text-center py-3">©️ 2020 Copyright:
-        <a href="https://mdbootstrap.com/"> Dami.com</a>
+        <a href="https://github.com/dami-design" target="_blank"> Dami.com</a>
       </div>
       <!-- Copyright -->
 
