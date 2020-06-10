@@ -22,7 +22,7 @@ const makemenu = async ({menuname, menulink})=>{
     const navlink = await document.createElement("a");
     const navitem = await document.createElement("li");
     
-    navlink.href = manulink;
+    navlink.href = menulink;
     navlink.classList.add("nav-link");
     navitem.classList.add("nav-item");
     navlink.textContent = menuname;
