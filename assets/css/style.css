@@ -62,7 +62,7 @@ body{
   font-family: 'Numans', sans-serif;
 }
 
-.card{
+.card.product{
   height: 370px;
   margin-top: auto;
   margin-bottom: auto;

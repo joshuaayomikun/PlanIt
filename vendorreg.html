@@ -10,60 +10,78 @@
   <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<style>
+  .page-image {
+    background-image: url('assets/img/beach-wedding-ceremony-during-daytime-169198.jpg');
+    background-size: cover;
+    position:absolute;
+    top:0;
+    bott
+  }
+</style>
 </head>
 <body>
-<div class="container" style="margin: 30px;">
-  <h2><b>Become a Proud Vendor</b></h2>
-  <!-- <p>In this example, we use <code>.was-validated</code> to indicate what's missing before submitting the form:</p> -->
-  <form action="/action_page.php">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="form-group">
-          <label for="uname">Company Name:</label>
-          <input type="text" class="form-control" id="uname" placeholder="Enter Company Name" name="uname" required>
+  <div class="row">
+  <!-- put image here -->
+  <div class="page-image"></div>
+  <div class="offset-lg-6 col-lg-6 col-md-12">
+      <div class="card product">
+        <div class="card-header">
+        <h2><b>Become a Proud Vendor</b></h2>
+        </div>
+        <div class="card-body">
+          <!-- <p>In this example, we use <code>.was-validated</code> to indicate what's missing before submitting the form:</p> -->
+          <form action="/action_page.php">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="uname">Company Name:</label>
+                  <input type="text" class="form-control" id="uname" placeholder="Enter Company Name" name="uname" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="uname">Email:</label>
+                  <input type="text" class="form-control" id="uname" placeholder="Enter email" name="uname" required>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                <label for="uname">PhoneNumber:</label>
+                <input type="text" class="form-control" id="uname" placeholder="Enter PhoneNumber" name="uname" required>
+              </div>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="pwd">Address</label>
+                <input type="password" class="form-control" id="pwd" placeholder="Enter Address" name="pswd" required>
+              </div>
+            </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5">
+            <div class="form-group">
+              I offer these services, <small>please select as much as you can<small>
+            <div class="list-group">
+              
+              <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="DJ"> DJ</button>
+              <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="Makeup Artist"> Makeup Artist</button>
+              <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="Event Hall"> Event Hall</button>
+              <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="Photography"> Photography</button>
+              <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="Caterers"> Caterers</button>
+              <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="Caterers"> Drink Vendor</button>
+            </div></div></div>
+          </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-6">
-         <div class="form-group">
-          <label for="uname">Email:</label>
-          <input type="text" class="form-control" id="uname" placeholder="Enter email" name="uname" required>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-        <label for="uname">PhoneNumber:</label>
-        <input type="text" class="form-control" id="uname" placeholder="Enter PhoneNumber" name="uname" required>
-      </div>
-    </div>
-    </div>
-    <div class="row">
-    <div class="col-md-12">
-      <div class="form-group">
-        <label for="pwd">Address</label>
-        <input type="password" class="form-control" id="pwd" placeholder="Enter Address" name="pswd" required>
-      </div>
-    </div>
-    </div>
-    <div class="row">
-      <div class="col-md-5">
-    <div class="form-group">
-      I offer these services, <small>please select as much as you can<small>
-    <div class="list-group">
-      
-      <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="DJ"> DJ</button>
-      <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="Makeup Artist"> Makeup Artist</button>
-      <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="Event Hall"> Event Hall</button>
-      <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="Photography"> Photography</button>
-      <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="Caterers"> Caterers</button>
-      <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="Caterers"> Drink Vendor</button>
-    </div></div></div>
   </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-  </div>
-</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
