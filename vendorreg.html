@@ -12,71 +12,62 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
     integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-  <style>
-    .page-image {
-      background: url('assets/img/beach-wedding-ceremony-during-daytime-169198.jpg');
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-
-    .div-overlay {
-      background-color: #00000080;
-      height: 100%;
-      bottom: 0;
-      top: 0;
-      left: 0;
-      right: 0;
-      position: absolute;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/vendorreg.css">
 </head>
 <body>
   <div class="form-group d-flex m-0">
     <div class="col-lg-6 col-md-12 position-relative">
       <div class="page-image"></div>
       <div class="div-overlay"></div>
+      <h1 class="text-white position-absolute text-center" style="top: 50%; width: 100%;">Become a Proud Vendor</h1>
     </div>
-    <div class="col-lg-6 col-md-12 p-0">
+    <div class="col-lg-6 col-md-12 p-0" style="
+    overflow: auto;
+    height: 90vh;
+">
       <div class="card">
         <div class="card-header">
-          <h2><b>Become a Proud Vendor</b></h2>
+          <h2><b>Vendor Signup Page</b></h2>
         </div>
         <div class="card-body">
           <!-- <p>In this example, we use <code>.was-validated</code> to indicate what's missing before submitting the form:</p> -->
-          <form method="POST" id="regform">
+          <form method="POST" id="regform" action="#">
             <div class="row">
               <div class="col-lg-6 col-md-12">
                 <div class="form-group">
-                  <label for="uname">Owner Name:</label>
-                  <input type="text" class="form-control" id="ownername" placeholder="Enter Company Name"
-                    name="ownername" required>
+                  <label for="name">Owner Name:</label>
+                  <input type="text" class="form-control" id="name" placeholder="Enter Your full Name"
+                    name="name" required>
                 </div>
               </div>
               <div class="col-lg-6 col-md-12">
                 <div class="form-group">
-                  <label for="uname">Company Name:</label>
-                  <input type="text" class="form-control" id="companyname" placeholder="Enter Company Name"
-                    name="companyname" required>
+                  <label for="username">Username:</label>
+                  <input type="text" class="form-control" id="username" placeholder="Enter your username"
+                    name="username" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="companyName">Company Name:</label>
+                  <input type="text" class="form-control" id="companyName" placeholder="Enter your Company Name"
+                    name="companyName" required>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-lg-6 col-md-12">
                 <div class="form-group">
-                  <label for="uname">Email:</label>
-                  <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+                  <label for="email">Email:</label>
+                  <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email" required>
                 </div>
               </div>
               <div class="col-lg-6 col-md-12">
                 <div class="form-group">
-                  <label for="uname">PhoneNumber:</label>
-                  <input type="text" class="form-control" id="phonenumber" placeholder="Enter PhoneNumber"
+                  <label for="phonenumber">Phone Number:</label>
+                  <input type="text" class="form-control" id="phonenumber" placeholder="Enter your PhoneNumber"
                     name="phonenumber" required>
                 </div>
               </div>
@@ -85,7 +76,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="pwd">Address</label>
-                  <textarea class="form-control" id="address" placeholder="Enter Address" name="address"
+                  <textarea class="form-control" id="address" placeholder="Enter your full Address" name="address"
                     required></textarea>
                 </div>
               </div>
@@ -96,21 +87,36 @@
                   I offer these services, <small>please select as much as you can</small>
                   <div class="list-group">
                     <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox"
-                        value="DJ" required> DJ</button>
+                        value="DJ" required name="services" id="services"> DJ</button>
                     <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox"
-                        value="Makeup Artist" required> Makeup Artist</button>
+                        value="Makeup Artist" name="services" id="services" required> Makeup Artist</button>
                     <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox"
-                        value="Event Hall" required> Event Hall</button>
+                        value="Event Hall" name="services" id="services" required> Event Hall</button>
                     <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox"
-                        value="Photography" required> Photography</button>
+                        value="Photography" name="services" id="services" required> Photography</button>
                     <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox"
-                        value="Caterers" required> Caterers</button>
+                        value="Caterers" name="services" id="services" required> Caterers</button>
                     <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox"
-                        value="Caterers" required> Drink Vendor</button>
+                        value="Drink Vendor" name="services" id="services" required>Drink Vendor</button>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" name="password" class="form-control" minlength="6" id="password" required placeholder="Enter your password">
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group">
+                  <label for="confirmpassword">Confirm Password</label>
+                  <input type="password" name="confirmpassword" equalto="#password" class="form-control" id="confirmpassword" required placeholder="Confirm your password">
+                </div>
+              </div>
+            </div> 
+            
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
@@ -124,21 +130,8 @@
   <script src="assets/js/footer.js"></script>
   <script src="assets/js/jquery.validate.min.js"></script>
   <script src="assets/js/additional-methods.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $("#regform").validate();
-      $(".service").on('click', selectservice);
-
-      async function selectservice(e) {
-        e.preventDefault();
-        const button = e.currentTarget;
-        debugger
-        button.querySelector("input[type='checkbox']").checked = !button.querySelector("input[type='checkbox']")
-          .checked;
-        button.classList.toggle("active")
-      }
-    });
-  </script>
+  <script src="assets/js/general.js"></script>
+  <script src="assets/js/vendorreg.js"></script>
 </body>
 
 </html>
