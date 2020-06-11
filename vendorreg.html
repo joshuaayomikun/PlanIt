@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
   <title>Vendor Registration</title>
   <meta charset="utf-8">
@@ -9,7 +10,8 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <style>
     .page-image {
       background: url('assets/img/beach-wedding-ceremony-during-daytime-169198.jpg');
@@ -22,6 +24,7 @@
       background-position: center;
       background-size: cover;
     }
+
     .div-overlay {
       background-color: #00000080;
       height: 100%;
@@ -45,76 +48,97 @@
           <h2><b>Become a Proud Vendor</b></h2>
         </div>
         <div class="card-body">
-        <!-- <p>In this example, we use <code>.was-validated</code> to indicate what's missing before submitting the form:</p> -->
-          <form action="/action_page.php">
+          <!-- <p>In this example, we use <code>.was-validated</code> to indicate what's missing before submitting the form:</p> -->
+          <form method="POST" id="regform">
+            <div class="row">
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group">
+                  <label for="uname">Owner Name:</label>
+                  <input type="text" class="form-control" id="ownername" placeholder="Enter Company Name"
+                    name="ownername" required>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group">
+                  <label for="uname">Company Name:</label>
+                  <input type="text" class="form-control" id="companyname" placeholder="Enter Company Name"
+                    name="companyname" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group">
+                  <label for="uname">Email:</label>
+                  <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group">
+                  <label for="uname">PhoneNumber:</label>
+                  <input type="text" class="form-control" id="phonenumber" placeholder="Enter PhoneNumber"
+                    name="phonenumber" required>
+                </div>
+              </div>
+            </div>
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
-                  <label for="uname">Company Name:</label>
-                  <input type="text" class="form-control" id="uname" placeholder="Enter Company Name" name="uname" required>
+                  <label for="pwd">Address</label>
+                  <textarea class="form-control" id="address" placeholder="Enter Address" name="address"
+                    required></textarea>
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <div class="form-group">
-                  <label for="uname">Email:</label>
-                  <input type="text" class="form-control" id="uname" placeholder="Enter email" name="uname" required>
+                  I offer these services, <small>please select as much as you can</small>
+                  <div class="list-group">
+                    <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox"
+                        value="DJ" required> DJ</button>
+                    <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox"
+                        value="Makeup Artist" required> Makeup Artist</button>
+                    <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox"
+                        value="Event Hall" required> Event Hall</button>
+                    <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox"
+                        value="Photography" required> Photography</button>
+                    <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox"
+                        value="Caterers" required> Caterers</button>
+                    <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox"
+                        value="Caterers" required> Drink Vendor</button>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                <label for="uname">PhoneNumber:</label>
-                <input type="text" class="form-control" id="uname" placeholder="Enter PhoneNumber" name="uname" required>
-              </div>
             </div>
-            </div>
-            <div class="row">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="pwd">Address</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Enter Address" name="pswd" required>
-              </div>
-            </div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
-            <div class="form-group">
-              I offer these services, <small>please select as much as you can</small>
-            <div class="list-group">
-              
-              <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="DJ"> DJ</button>
-              <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="Makeup Artist"> Makeup Artist</button>
-              <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="Event Hall"> Event Hall</button>
-              <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="Photography"> Photography</button>
-              <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="Caterers"> Caterers</button>
-              <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="Caterers"> Drink Vendor</button>
-            </div></div></div>
-          </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-          
           </form>
         </div>
       </div>
     </div>
   </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script src="assets/js/menu.js"></script>
-<script src="assets/js/footer.js"></script>
-<script>
-  $(document).ready(function(){
-    $(".service").on('click', selectservice);
-    
-    async function selectservice(e){
-      e.preventDefault();
-      const button =  e.currentTarget;
-      debugger
-      button.querySelector("input[type='checkbox']").checked = !button.querySelector("input[type='checkbox']").checked;
-      button.classList.toggle("active")
-    }
-  });
-</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="assets/js/menu.js"></script>
+  <script src="assets/js/footer.js"></script>
+  <script src="assets/js/jquery.validate.min.js"></script>
+  <script src="assets/js/additional-methods.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#regform").validate();
+      $(".service").on('click', selectservice);
+
+      async function selectservice(e) {
+        e.preventDefault();
+        const button = e.currentTarget;
+        debugger
+        button.querySelector("input[type='checkbox']").checked = !button.querySelector("input[type='checkbox']")
+          .checked;
+        button.classList.toggle("active")
+      }
+    });
+  </script>
 </body>
+
 </html>
