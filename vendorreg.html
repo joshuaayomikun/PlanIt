@@ -10,27 +10,42 @@
   <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-<style>
-  .page-image {
-    background-image: url('assets/img/beach-wedding-ceremony-during-daytime-169198.jpg');
-    background-size: cover;
-    position:absolute;
-    top:0;
-    bott
-  }
-</style>
+  <style>
+    .page-image {
+      background: url('assets/img/beach-wedding-ceremony-during-daytime-169198.jpg');
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    .div-overlay {
+      background-color: #00000080;
+      height: 100%;
+      bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+    }
+  </style>
 </head>
 <body>
-  <div class="row">
-  <!-- put image here -->
-  <div class="page-image"></div>
-  <div class="offset-lg-6 col-lg-6 col-md-12">
-      <div class="card product">
+  <div class="form-group d-flex m-0">
+    <div class="col-lg-6 col-md-12 position-relative">
+      <div class="page-image"></div>
+      <div class="div-overlay"></div>
+    </div>
+    <div class="col-lg-6 col-md-12 p-0">
+      <div class="card">
         <div class="card-header">
-        <h2><b>Become a Proud Vendor</b></h2>
+          <h2><b>Become a Proud Vendor</b></h2>
         </div>
         <div class="card-body">
-          <!-- <p>In this example, we use <code>.was-validated</code> to indicate what's missing before submitting the form:</p> -->
+        <!-- <p>In this example, we use <code>.was-validated</code> to indicate what's missing before submitting the form:</p> -->
           <form action="/action_page.php">
             <div class="row">
               <div class="col-md-12">
@@ -65,7 +80,7 @@
             <div class="row">
               <div class="col-md-5">
             <div class="form-group">
-              I offer these services, <small>please select as much as you can<small>
+              I offer these services, <small>please select as much as you can</small>
             <div class="list-group">
               
               <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox" value="DJ"> DJ</button>
