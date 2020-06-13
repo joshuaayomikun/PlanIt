@@ -1,301 +1,205 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>ADMIN</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v4.0.1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <!-- Bootstrap core CSS -->
-    <link href="../assets/css/dashboard.css" rel="stylesheet">
-    
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
+
+<head>
+  <title>ADMIN</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Jekyll v4.0.1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  <!-- Bootstrap core CSS -->
+  <link href="../assets/css/dashboard.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
       }
+    }
+  </style>
+</head>
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
+<body>
 
-  
 
-    <!-- Custom styles for this template -->
-    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="../homepagee.html">Plan your event</a>
-  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-  <ul class="navbar-nav px-3">
-    <li class="nav-item text-nowrap">
-      <a class="nav-link" href="#">Sign out</a>
-    </li>
-  </ul>
-</nav>
 
-<div class="container-fluid">
-  <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-      <div class="sidebar-sticky pt-3">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">
-              <span data-feather="home"></span>
-              Dashboard <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file"></span>
-              Event
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Bookedservies.html">
-              <span data-feather="shopping-cart"></span>
-          Booked Services
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="user.html">
-              <span data-feather="users"></span>
-           Users
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="history.html">
-              <span data-feather="bar-chart-2"></span>
-            Past Event
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="createservice.html">
-              <span data-feather="layers"></span>
-            Create Service
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+  <!-- Custom styles for this template -->
+  <nav class="navbar navbar-dark navbar-expand-lg sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <div class="container-fluid px-md-5">
+      <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="../index.html">Plan your event</a>
+      <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+        data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> -->
+      <ul class="ml-auto navbar-nav px-3">
+        <li class="nav-item text-nowrap dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <img src="../assets/img/undraw_male_avatar_323b.svg" style="width: 40px; height: auto;" alt="user icon" class="img-rounded user-image">
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">      
-      <br>
-      <div class="container">
-        <!-- <h2>Cards Columns</h2>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="sidebar-sticky pt-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                <span data-feather="home"></span>
+                Dashboard <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="file"></span>
+                Event
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Bookedservies.html">
+                <span data-feather="shopping-cart"></span>
+                Booked Services
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="user.html">
+                <span data-feather="users"></span>
+                Users
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="history.html">
+                <span data-feather="bar-chart-2"></span>
+                Past Event
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="createservice.html">
+                <span data-feather="layers"></span>
+                Create Service
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+        <br>
+        <div class="container">
+          <!-- <h2>Cards Columns</h2>
         <p>The .card-columns class creates a masonry-like grid of cards. The layout will automatically adjust as you insert more cards.</p>
         <p><strong>Note:</strong> The cards are displayed vertically on small screens (less than 576px):</p> -->
-        <div class="card-columns">
-          <div class="card card-header bg-transparent border-success">
-            <div class="card-body text-center">
-              <i class='fas fa-user-alt' style='font-size:58px;'></i>
-              <br>
-              <p class="card-text"><br><h3>15</h3</p>
-              <p>Active Users</p>
+          <div class="card-columns">
+            <div class="card card-header bg-transparent border-success">
+              <div class="card-body text-center">
+                <i class='fas fa-user-alt' style='font-size:58px;'></i>
+                <br>
+                <p class="card-text"><br>
+                  <h3>15</h3</p> <p>Active Users
+                </p>
+              </div>
             </div>
-          </div>
-          <div class="card bg-warning">
-            <div class="card-body text-center">
-              <br>
-              <i class='fas fa-credit-card' style='font-size:58px;'></i>
-              <br>
-              <p class="card-text"><br><h3>25</h3></p>
-              <p><b>Total Event</b></p>
+            <div class="card bg-warning">
+              <div class="card-body text-center">
+                <br>
+                <i class='fas fa-credit-card' style='font-size:58px;'></i>
+                <br>
+                <p class="card-text"><br>
+                  <h3>25</h3>
+                </p>
+                <p><b>Total Event</b></p>
+              </div>
             </div>
-          </div>
-          <div class="card bg-success">
-            <div class="card-body text-center">
-              <br>
-              <i class='far fa-futbol' style='font-size:58px;'></i>
-              <br>
-              <p class="card-text"><br><h3>0</h3></p>
-              <p><b>Active Services</b></p>
+            <div class="card bg-success">
+              <div class="card-body text-center">
+                <br>
+                <i class='far fa-futbol' style='font-size:58px;'></i>
+                <br>
+                <p class="card-text"><br>
+                  <h3>0</h3>
+                </p>
+                <p><b>Active Services</b></p>
+              </div>
             </div>
-          </div>
-          <div class="card bg-danger">
-            <div class="card-body text-center">
-              <br>
-              <i class='far fa-comments' style='font-size:58px;'></i>
-              <br>
-              <p class="card-text"><br><h3>5</h3></p>
-              <p><b>Active Plan</b></p>
+            <div class="card bg-danger">
+              <div class="card-body text-center">
+                <br>
+                <i class='far fa-comments' style='font-size:58px;'></i>
+                <br>
+                <p class="card-text"><br>
+                  <h3>5</h3>
+                </p>
+                <p><b>Active Plan</b></p>
+              </div>
             </div>
-          </div>  
-          <div class="card bg-light">
-            <div class="card-body text-center">
-              <br>
-              <i class='fas fa-shopping-cart' style='font-size:58px;'></i>
-              <br>
-              <p class="card-text"><br><h3>125</h3></p>
-              <p><b>Total Booking</b></p>
+            <div class="card bg-light">
+              <div class="card-body text-center">
+                <br>
+                <i class='fas fa-shopping-cart' style='font-size:58px;'></i>
+                <br>
+                <p class="card-text"><br>
+                  <h3>125</h3>
+                </p>
+                <p><b>Total Booking</b></p>
+              </div>
             </div>
-          </div>
-          <div class="card bg-info">
-            <div class="card-body text-center">
-              <br>
-              <i class='fas fa-fax' style='font-size:58px;'></i>
-              <p class="card-text"><br><h3>0</h3></p>
-              <p><b>New Request</b></p>
+            <div class="card bg-info">
+              <div class="card-body text-center">
+                <br>
+                <i class='fas fa-fax' style='font-size:58px;'></i>
+                <p class="card-text"><br>
+                  <h3>0</h3>
+                </p>
+                <p><b>New Request</b></p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      
-    </main>
+
+      </main>
+    </div>
   </div>
-</div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script>
+    window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+  <script src="../assets/js/general.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
 
-       <!-- Footer -->
- <!-- <footer class="page-footer font-small indigo"> -->
-
-  <!-- Footer Links -->
-  <!-- <div class="container text-center text-md-left">
-
-    Grid row -->
-    <!-- <div class="row">
-
-      Grid column -->
-      <!-- <div class="col-md-3 mx-auto"> -->
-
-        <!-- Links -->
-        <!-- <h5 class="font-weight-bold text-uppercase mt-3 mb-4">COMPANY</h5> -->
-
-        <!-- <ul class="list-unstyled"> -->
-          <!-- <li>
-            <a href="#!">About</a>
-          </li> -->
-          <!-- <li>
-            <a href="#!">How It Works</a>
-          </li>
-          <li>
-            <a href="#!">Terms and Condition</a> -->
-          <!-- </li>
-          <li>
-            <a href="#!">Privacy Policy</a>
-          </li>
-        </ul>  -->
-      <!-- </div> -->
-      <!-- Grid column -->
-
-      <!-- <hr class="clearfix w-100 d-md-none"> -->
-
-      <!-- Grid column -->
-      <!-- <div class="col-md-3 mx-auto"> -->
-
-        <!-- Links -->
-        <!-- <h5 class="font-weight-bold text-uppercase mt-3 mb-4">DISCOVER</h5> -->
-
-        <!-- <ul class="list-unstyled"> -->
-          <!-- <li>
-            <a href="#!">Cake Vendors</a>
-          </li>
-          <li>
-            <a href="#!">Caterers</a> -->
-          <!-- </li>
-          <li>
-            <a href="#!">Event Planners</a>
-          </li>
-          <li> -->
-            <!-- <a href="#!">Photographers</a>
-          </li>
-          <li>
-            <a href="#!">Makeup Artists</a>
-          </li>
-        </ul> -->
-
-      <!-- </div> -->
-      <!-- Grid column -->
-
-      <!-- <hr class="clearfix w-100 d-md-none"> -->
-
-      <!-- Grid column -->
-      <!-- <div class="col-md-3 mx-auto"> -->
-
-        <!-- Links -->
-        <!-- <h5 class="font-weight-bold text-uppercase mt-3 mb-4">TOP STATES</h5> -->
-
-        <!-- <ul class="list-unstyled">
-          <li>
-            <a href="#!">Lagos</a>
-          </li>
-          <li> -->
-            <!-- <a href="#!">Abuja</a>
-          </li>
-          <li>
-            <a href="#!">Oyo</a>
-          </li>
-          <li> -->
-            <!-- <a href="#!">Rivers</a>
-          </li>
-        </ul>
-
-      </div> -->
-      <!-- Grid column -->
-
-      <!-- <hr class="clearfix w-100 d-md-none"> -->
-
-      <!-- Grid column -->
-      <!-- <div class="col-md-3 mx-auto"> -->
-
-        <!-- Links -->
-        <!-- <h5 class="font-weight-bold text-uppercase mt-3 mb-4">CONNECT</h5>
-
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!">Contact Us</a>
-          </li>
-          <li>
-            <a href="#!">Facebook</a>
-          </li>
-          <li>
-            <a href="#!">Instagram</a>
-          </li> -->
-          <!-- <li>
-            <a href="#!">Facebook</a>
-          </li>
-        </ul>
-
-      </div> -->
-      <!-- Grid column -->
-
-    <!-- </div> -->
-    <!-- Grid row -->
-
-  <!-- </div>  -->
-  <!-- Footer Links -->
-
-  <!-- Copyright -->
-  <!-- <div class="footer-copyright text-center py-3">©️ 2020 Copyright:
-    <a href="https://mdbootstrap.com/"> Dami.com</a>
-  </div> -->
-  <!-- Copyright -->
-
-<!-- </footer> -->
-<!-- Footer -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-        <script src="../assets/js/dashboard.js"></script>
-  </body>
 </html>

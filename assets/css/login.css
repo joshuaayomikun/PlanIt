@@ -1,0 +1,26 @@
+
+.page-image {
+    background: url('../../assets/img/beach-wedding-ceremony-during-daytime-169198.jpg');
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    }
+
+    .div-overlay {
+    background-color: #00000080;
+    height: 100%;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    }
+
+    label.error {
+    color: #dc3545!important;
+    }
