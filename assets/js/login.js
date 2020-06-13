@@ -7,9 +7,17 @@ $(loginform).validate({
             event.preventDefault();
             const user = await UserLogin();
             await saveuserinfo(await user);
-            if(await user) {
-                window.location.href = 'admin/'
+            switch(await user.role.toLowerCase()) {
+                case "vendor":
+                    window.location.href = "vendor/";
+                    break;
+                case "admin":
+                    window.location.href = "admin/"
+                    break;
+                default:
+                    window.location.href = index.html
             }
+            
             console.log({user});
         } catch(ex) {
             toastnotification("Error", "Error in signing in " + ex);

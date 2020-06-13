@@ -47,3 +47,18 @@ const toastnotification = async (heading, message) => {
     //     </div>
     //     </div>
 };
+
+const getUserInfo = async () => {
+    const userstring = await  window.localStorage.getItem("user");
+    const user = typeof userstring !== 'undefined' ? JSON.parse( await userstring): "";
+    if (user) {
+        const response = await fetch(`${apiBaseUrl}api/getMyInfo/${user.userId}`, {
+            method: 'GET', // *GET, POST, PUT, DELETE, etc.
+            headers: { 'Content-Type': 'application/json',  'x-access-token' : await user.token}// body data type must match "Content-Type" header
+        });
+
+        return response.json();
+    }
+    return "";
+
+};

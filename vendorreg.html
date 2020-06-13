@@ -51,6 +51,21 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group">
+                  Gender
+                  <div class="list-group flex-row">
+                    <button type="button" class="list-group-item list-group-item-action gender active">
+                      <input type="radio" value="male" required name="gender" id="male" checked> Male
+                    </button>
+                    <button type="button" class="list-group-item list-group-item-action gender">
+                      <input type="radio" value="female" required name="gender" id="female"> Female
+                    </button>
+                  </div>
+                </div> 
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
                   <label for="companyName">Company Name:</label>
                   <input type="text" class="form-control" id="companyName" placeholder="Enter your Company Name"
                     name="companyName" required>
@@ -85,19 +100,19 @@
               <div class="col-md-12">
                 <div class="form-group">
                   I offer these services, <small>please select as much as you can</small>
-                  <div class="list-group">
-                    <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox"
-                        value="DJ" required name="services" id="services"> DJ</button>
-                    <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox"
-                        value="Makeup Artist" name="services" id="services" required> Makeup Artist</button>
-                    <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox"
-                        value="Event Hall" name="services" id="services" required> Event Hall</button>
-                    <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox"
-                        value="Photography" name="services" id="services" required> Photography</button>
-                    <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox"
-                        value="Caterers" name="services" id="services" required> Caterers</button>
-                    <button type="button" class="list-group-item list-group-item-action service"><input type="checkbox"
-                        value="Drink Vendor" name="services" id="services" required>Drink Vendor</button>
+                  <div class="list-group flex-row flex-wrap">
+                    <button type="button" class="list-group-item list-group-item-action service w-auto"><input type="checkbox"
+                        value="DJ" required name="services" id="DJ"> DJ</button>
+                    <button type="button" class="list-group-item list-group-item-action service w-auto"><input type="checkbox"
+                        value="Makeup Artist" name="services" id="Makeup" required> Makeup Artist</button>
+                    <button type="button" class="list-group-item list-group-item-action service w-auto"><input type="checkbox"
+                        value="Event Hall" name="services" id="Event" required> Event Hall</button>
+                    <button type="button" class="list-group-item list-group-item-action service w-auto"><input type="checkbox"
+                        value="Photography" name="services" id="Photography" required> Photography</button>
+                    <button type="button" class="list-group-item list-group-item-action service w-auto"><input type="checkbox"
+                        value="Caterers" name="services" id="Caterers" required> Caterers</button>
+                    <button type="button" class="list-group-item list-group-item-action service w-auto"><input type="checkbox"
+                        value="Drink Vendor" name="services" id="Drink" required>Drink Vendor</button>
                   </div>
                 </div>
               </div>

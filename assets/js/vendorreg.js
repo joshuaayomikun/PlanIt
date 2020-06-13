@@ -5,11 +5,11 @@ $(document).ready(function () {
     const companyName = document.querySelector("#companyName");
     const address = document.querySelector("#address");
     const services = document.querySelectorAll("input[name='services']");
+    const gender = document.querySelectorAll("input[name='gender']");
     const phonenumber = document.querySelector("#phonenumber");
     const password = document.querySelector("#password");
     const getFormData = async () =>{
         try{
-            let finalValue ="";
             return {
                 email: await email.value, 
                 username: await username.value, 
@@ -23,7 +23,13 @@ $(document).ready(function () {
                     return `${await previousValue},${await currentValue}`;
                 }),
                 password:await password.value,
-                phonenumber:await phonenumber.value
+                phonenumber:await phonenumber.value,
+                gender: await Array.from(gender)
+                .filter((check)=> check.checked)
+                .map(async(check)=> await check.value)
+                .reduce(async (previousValue, currentValue) => {
+                    return `${await currentValue}`;
+                })
             };
         } catch(ex) {
             console.error(ex);
@@ -60,7 +66,7 @@ $(document).ready(function () {
     const selectservice = async (e) => {
         e.preventDefault();
         try {
-            const button = e.currentTarget;
+            const button = e.target;
             // debugger
             button.querySelector("input[type='checkbox']").checked = !button.querySelector("input[type='checkbox']")
             .checked;
@@ -70,5 +76,19 @@ $(document).ready(function () {
             console.error(ex);
         }
     }
+    const selectgender = async (e) => {
+        e.preventDefault();
+        try {
+            const button = e.target;
+            // debugger
+            Array.from(button.parentElement.children).forEach(async (but) => await but.classList.toggle("active"));
+            button.querySelector("input[type='radio']").checked = !button.querySelector("input[type='radio']")
+            .checked;
+        } catch(ex) {
+                toastnotification("Error", "An error occurred");
+            console.error(ex);
+        }
+    }
     $(".service").on('click', async (e) => await selectservice(e));
+    $(".gender").on('click', async (e) => await selectgender(e));
 });
