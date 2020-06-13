@@ -6,7 +6,7 @@ const menulist = [{
     menulink: "vendorpage.html"
 },{
     menuname: "User Signup",
-    menulink: "customerregistration.html"
+    menulink: "reg.html"
 },{
     menuname: "Vendor Registration",
     menulink: "vendorreg.html"
