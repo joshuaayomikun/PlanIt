@@ -92,3 +92,31 @@ $(document).ready(function () {
     $(".service").on('click', async (e) => await selectservice(e));
     $(".gender").on('click', async (e) => await selectgender(e));
 });
+
+const usersignup = async () => {
+    const response = await fetch(`${apiBaseUrl}api/Signup`, {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(await getFormData()) // body data type must match "Content-Type" header
+    });
+
+    return response.json();
+};
+$("#regform").validate({
+    submitHandler: async (form, event) => {
+        // await vendorsignup()
+        // debugger;
+        event.preventDefault();
+        try{
+        let re = await usersignup();
+        if(await re.token)
+            toastnotification("Success!!", "registered successfully click <a href='login.html'>here</a> to login");
+        else
+            toastnotification("Error", "not registered");
+        } catch(ex) {
+
+            toastnotification("Error", "Error in signing up");
+        }
+        return false;
+    }
+});
