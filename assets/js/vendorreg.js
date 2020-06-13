@@ -43,11 +43,16 @@ $(document).ready(function () {
             // await vendorsignup()
             // debugger;
             event.preventDefault();
+            try{
             let re = await vendorsignup();
             if(await re.token)
                 toastnotification("Success!!", "Vendor registered successfully click <a href='login.html'>here</a> to login");
             else
                 toastnotification("Error", "Vendor not registered");
+            } catch(ex) {
+
+                toastnotification("Error", "Error in signing up");
+            }
             return false;
         }
     });
@@ -61,6 +66,7 @@ $(document).ready(function () {
             .checked;
             button.classList.toggle("active");
         } catch(ex) {
+                toastnotification("Error", "An error occurred");
             console.error(ex);
         }
     }
