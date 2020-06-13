@@ -1,7 +1,7 @@
 /* globals Chart:false, feather:false */
-
-(function () {
-    'use strict'
+window.onload = async () => {
+  let user = await getUserInfo();
   
-  }())
+  console.log({user});
+}
   
