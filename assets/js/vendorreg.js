@@ -102,21 +102,3 @@ const usersignup = async () => {
 
     return response.json();
 };
-$("#regform").validate({
-    submitHandler: async (form, event) => {
-        // await vendorsignup()
-        // debugger;
-        event.preventDefault();
-        try{
-        let re = await usersignup();
-        if(await re.token)
-            toastnotification("Success!!", "registered successfully click <a href='login.html'>here</a> to login");
-        else
-            toastnotification("Error", "not registered");
-        } catch(ex) {
-
-            toastnotification("Error", "Error in signing up");
-        }
-        return false;
-    }
-});
