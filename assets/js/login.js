@@ -42,6 +42,5 @@ const UserLogin = async () => {
     });
     return response.json();
 };
-
 const saveuserinfo = async (user) =>  window.localStorage.setItem("user", JSON.stringify(user));
 
