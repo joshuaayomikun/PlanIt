@@ -18,7 +18,7 @@
                                 toastnotification("Error", "Unable to Login");
                             } catch(ex) {
                 
-                                toastnotification("Error", "Unablw to Login");
+                                toastnotification("Error", "Unable to Login");
                             }
                             return false;
                         }
