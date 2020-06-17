@@ -14,70 +14,89 @@
     integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/vendorreg.css">
 </head>
+
 <body>
   <div class="form-group d-flex m-0">
     <div class="col-lg-6 col-md-12 position-relative">
       <div class="page-image"></div>
       <div class="div-overlay"></div>
-      <h1 class="text-white position-absolute text-center" style="top: 50%; width: 100%;">Please fill the form to register</h1>
+      <h1 class="text-white position-absolute text-center" style="top: 50%; width: 100%;">Please fill the form to
+        register</h1>
     </div>
-    <div class="col-lg-6 col-md-12 p-0" style="
-    overflow: auto;
-    height: 90vh;
-">
+    <div class="col-lg-6 col-md-12 p-0" style="overflow: auto; height: 90vh;">
       <div class="card">
         <div class="card-header">
-          <h2><b>Signup Page</b></h2>
+          <h2 class="text-center"><b>Signup Page</b></h2>
         </div>
         <div class="card-body">
           <!-- <p>In this example, we use <code>.was-validated</code> to indicate what's missing before submitting the form:</p> -->
           <form method="POST" id="regform" action="#">
             <div class="row">
-              <div class="col-lg-6 col-md-12">
+              <div class="col-md-12">
                 <div class="form-group">
-                  <label for="username">Username:</label>
-                  <input type="text" class="form-control" id="username" placeholder="Enter your username"
-                    name="username" required>
+                  <label for="name">name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Enter your Name" name="name" required>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-lg-6 col-md-12">
                 <div class="form-group">
-                  <label for="username">Email address:</label>
-                  <input type="text" class="form-control" id="mail" placeholder="Enter your e-mail address"
-                    name="email" required>
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" placeholder="Enter your e-mail address" name="email" required>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" class="form-control" id="username" placeholder="Enter your username" name="username" required>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-lg-6 col-md-12">
                 <div class="form-group">
-                  <label for="username">Password:</label>
-                  <input type="text" class="form-control" id="password" placeholder="Enter your password"
-                    name="password" required>
+                  Gender
+                  <div class="list-group flex-row">
+                    <button type="button" class="list-group-item list-group-item-action gender active">
+                      <input type="radio" value="male" required name="gender" id="male" checked> Male
+                    </button>
+                    <button type="button" class="list-group-item list-group-item-action gender">
+                      <input type="radio" value="female" required name="gender" id="female"> Female
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="form-group">
+                  <label for="phonenumber">Phone Number</label>
+                  <input type="text" class="form-control" id="phonenumber" placeholder="Enter your PhoneNumber" name="phonenumber" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="address">Address</label>
+                  <textarea class="form-control" id="address" placeholder="Enter your password"
+                    name="address" required></textarea>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-lg-6 col-md-12">
                 <div class="form-group">
-                  <label for="username">Confirm Password:</label>
-                  <input type="text" class="form-control" id="confirmpassword" placeholder="Confirm your password"
-                    name="confirmpassword" required>
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password" required>
                 </div>
               </div>
-            </div>
-            <div class="row">
               <div class="col-lg-6 col-md-12">
                 <div class="form-group">
-                  <label for="phonenumber">Phone Number:</label>
-                  <input type="text" class="form-control" id="phonenumber" placeholder="Enter your PhoneNumber"
-                    name="phonenumber" required>
+                  <label for="confirmpassword">Confirm Password</label>
+                  <input type="password" class="form-control" id="confirmpassword" equalto="#password" placeholder="Confirm your password" name="confirmpassword" required>
                 </div>
               </div>
             </div>
-            
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
@@ -92,6 +111,7 @@
   <script src="assets/js/jquery.validate.min.js"></script>
   <script src="assets/js/additional-methods.min.js"></script>
   <script src="assets/js/general.js"></script>
-  <script src="assets/js/vendorreg.js"></script>
+  <script src="assets/js/signup.js"></script>
 </body>
+
 </html>

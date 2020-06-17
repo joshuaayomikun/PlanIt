@@ -15,7 +15,7 @@ $(loginform).validate({
                     window.location.href = "admin/"
                     break;
                 default:
-                    window.location.href = index.html
+                    window.location.href = "customer/index.html"
             }
             
             console.log({user});
