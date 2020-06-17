@@ -1,5 +1,4 @@
-const apiBaseUrl = "http://localhost:3000/",
-toastnotification = async (heading, message) => {
+const toastnotification = async (heading, message) => {
     const div = await document.createElement("div");
     const toast = await document.createElement("div");
     const toastheader = await document.createElement("div");
@@ -57,13 +56,15 @@ getUserInfo = async () => {
             });
             // debugger
             const status = await response.status;
-            debugger
+            // debugger
             if(status === 200) {
                 return response.json();
             }
             else if(status === 403){
                 throw "invalid token"
             }
+
+
         }
         return "";
     } catch(ex) {
@@ -96,4 +97,13 @@ gotomydashboard = () => {
                 window.location.href = "customer/"
         }
     }
-}
+}, 
+getRootUrl = () => {
+    return window.location.origin
+        ? window.location.origin + '/'
+        : window.location.protocol + '/' + window.location.host + '/';
+},
+clientBaseUrl = getRootUrl(),
+apiBaseUrl = clientBaseUrl ==="http://localhost:5500/" ? "http://localhost:3000/":"https://fathomless-springs-44788.herokuapp.com/";
+
+
