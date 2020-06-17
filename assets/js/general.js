@@ -1,5 +1,3 @@
-const apiBaseUrl = "http://localhost:3000/";
-
 const toastnotification = async (heading, message) => {
     const div = await document.createElement("div");
     const toast = await document.createElement("div");
@@ -46,19 +44,66 @@ const toastnotification = async (heading, message) => {
     //         </div>
     //     </div>
     //     </div>
-};
+},
+getUserInfo = async () => {
+    try{
+        const userstring = window.localStorage.getItem("user");
+        const user = typeof userstring !== 'undefined' ? JSON.parse(userstring): "";
+        if (await user) {
+            const response = await fetch(`${apiBaseUrl}api/getMyInfo/${user.userId}`, {
+                method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                headers: { 'Content-Type': 'application/json',  'x-access-token' : await user.token}// body data type must match "Content-Type" header
+            });
+            // debugger
+            const status = await response.status;
+            // debugger
+            if(status === 200) {
+                return response.json();
+            }
+            else if(status === 403){
+                throw "invalid token"
+            }
 
-const getUserInfo = async () => {
-    const userstring = await  window.localStorage.getItem("user");
-    const user = typeof userstring !== 'undefined' ? JSON.parse( await userstring): "";
-    if (user) {
-        const response = await fetch(`${apiBaseUrl}api/getMyInfo/${user.userId}`, {
-            method: 'GET', // *GET, POST, PUT, DELETE, etc.
-            headers: { 'Content-Type': 'application/json',  'x-access-token' : await user.token}// body data type must match "Content-Type" header
-        });
 
-        return response.json();
+        }
+        return "";
+    } catch(ex) {
+        debugger
+        signout();
+        window.location.href = "../login.html"
     }
-    return "";
 
-};
+},
+signout = () => {
+    window.localStorage.removeItem("user");
+    window.location.href = "index.html"
+},
+dashboardsignout = () => {
+    window.localStorage.removeItem("user");
+    window.location.href = "../index.html"
+},
+gotomydashboard = () => {
+    const userstring = window.localStorage.getItem("user");
+    const user = typeof userstring !== 'undefined' ? JSON.parse(userstring): "";
+    if(user){
+        switch(user.role.toLowerCase()) {
+            case "vendor":
+                window.location.href = "vendor/";
+                break;
+            case "admin":
+                window.location.href = "admin/"
+                break;
+            default:
+                window.location.href = "customer/"
+        }
+    }
+}, 
+getRootUrl = () => {
+    return window.location.origin
+        ? window.location.origin + '/'
+        : window.location.protocol + '/' + window.location.host + '/';
+},
+clientBaseUrl = getRootUrl(),
+apiBaseUrl = clientBaseUrl ==="http://localhost:5500/" ? "http://localhost:3000/":"https://fathomless-springs-44788.herokuapp.com/";
+
+

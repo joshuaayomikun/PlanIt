@@ -6,33 +6,42 @@ const menulist = [{
     menulink: "vendorpage.html"
 },{
     menuname: "User Signup",
-    menulink: "reg.html"
+    menulink: "reg.html",
+    menuclass: "user-signup"
 },{
     menuname: "Vendor Registration",
-    menulink: "vendorreg.html"
+    menulink: "vendorreg.html",
+    menuclass: "vendor-reg"
 },{
     menuname: "Login",
-    menulink: "login.html"
-}]
+    menulink: "login.html",
+    menuclass: "login"
+}],
+  brandname= "Plan Your Event",
+  nav = document.createElement("nav"),
+  containerdiv = document.createElement("div"),
+  collaspediv = document.createElement("div"),
+  ul = document.createElement("ul"),
+  collapsediv = document.createElement("div"),
+  navbarbrand = document.createElement("a"),
+  makemenu = async ({menuname, menulink, menuclass = ""})=>{
 
-const brandname= "Plan Your Event"
+      const navlink = document.createElement("a");
+      const navitem = document.createElement("li");
+      
+      navlink.href = await menulink;
+      navlink.classList.add("nav-link", "m-auto");
+      navitem.classList.add("nav-item", "d-flex");
+      if(await menuclass) {
+        navitem.classList.add(menuclass);
+      }
+      navlink.textContent = menuname;
+      navitem.appendChild(navlink);
 
-const makemenu = async ({menuname, menulink})=>{
+      return navitem;
 
-    const navlink = await document.createElement("a");
-    const navitem = await document.createElement("li");
-    
-    navlink.href = menulink;
-    navlink.classList.add("nav-link");
-    navitem.classList.add("nav-item");
-    navlink.textContent = menuname;
-    navitem.appendChild(navlink);
-
-    return navitem;
-
-};
-
-const navbartoggler = async ()=>{
+  },
+  navbartoggler = async ()=>{
     
     const button = await document.createElement("button");
     const span = await document.createElement("span");
@@ -49,17 +58,11 @@ const navbartoggler = async ()=>{
     return button;
 };
 
-const nav = document.createElement("nav");
-const containerdiv = document.createElement("div");
-const collaspediv = document.createElement("div");
-const ul = document.createElement("ul");
-const collapsediv = document.createElement("div");
-const navbarbrand = document.createElement("a");
 navbarbrand.classList.add("navbar-brand");
 ul.classList.add("navbar-nav","ml-auto");
 navbarbrand.textContent = brandname;
-collaspediv.classList.add("collapse", "navbar-collapse")
-collaspediv.id = "navbarSupportedContent"
+collaspediv.classList.add("collapse", "navbar-collapse");
+collaspediv.id = "navbarSupportedContent",
 
 containerdiv.classList.add("container-fluid", "px-md-5",);
 nav.classList.add("navbar", "navbar-expand-lg", "navbar-dark", "bg-dark",);
