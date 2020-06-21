@@ -1,6 +1,10 @@
 /* globals Chart:false, feather:false */
 
-const makenavitem = (vendormenu) => {
+const profileimg = document.querySelector(".user-image"),
+logout = document.querySelector(".log-out"),
+profilename = document.querySelector(".profile-name"),
+profilerole = document.querySelector(".profile-role"),
+makenavitem = (vendormenu) => {
   // debugger;
   const navitem = document.createElement("li"),
     navlink = document.createElement("a"),
@@ -37,7 +41,21 @@ makesidebar = (vendormenu) => {
   ul.classList.add("nav", "flex-column");
   sidebarmenu.appendChild(sidebarsticky);
   document.querySelector("main").parentElement.insertBefore(sidebarmenu, document.querySelector("main"));
-}
+};
+
+getUserInfo().then(data => {
+  // debugger;
+  if(data) {
+      profilename.textContent = data.user.name;
+      profilerole.textContent = data.user.role;
+      profileimg.src = data.user.gender === "male" ? "../assets/img/undraw_male_avatar_323b.svg" : "../assets/img/undraw_female_avatar_w3jk.svg"
+      logout.addEventListener("click", signout);
+  } else throw "error"
+}).catch(ex => {
+  debugger;
+  signout();
+  console.log(ex);
+});
 
 /*
   

@@ -61,7 +61,9 @@ getUserInfo = async () => {
                 return response.json();
             }
             else if(status === 403){
-                throw "invalid token"
+                throw "invalid token";
+            }else{
+                throw "an error occurred";
             }
         }
         return "";
@@ -74,7 +76,7 @@ getUserInfo = async () => {
 },
 signout = () => {
     window.localStorage.removeItem("user");
-    window.location.href = "index.html"
+    window.location.href = clientBaseUrl+"index.html"
 },
 dashboardsignout = () => {
     window.localStorage.removeItem("user");
