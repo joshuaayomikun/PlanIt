@@ -1,160 +1,132 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>PAST BOOKING</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v4.0.1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <!-- Bootstrap core CSS -->
-    <link href="../assets/css/dashboard.css" rel="stylesheet">
-    
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
+<head>
+  <title>PAST BOOKING</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Jekyll v4.0.1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  <!-- Bootstrap core CSS -->
+  <link href="../assets/css/dashboard.css" rel="stylesheet">
 
-  
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+
 
     <!-- Custom styles for this template -->
-    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="../homepagee.html">Plan your event</a>
-  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-  <ul class="navbar-nav px-3">
-    <li class="nav-item text-nowrap">
-      <a class="nav-link" href="#">Sign out</a>
-    </li>
-  </ul>
-</nav>
-
-<div class="container-fluid">
-  <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-      <div class="sidebar-sticky pt-3">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" href="history.html">
-              <span data-feather="home"></span>
-             Past Event <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Bookedservies.html">
-              <span data-feather="file"></span>
-              Event
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Bookedservies.html">
-              <span data-feather="shopping-cart"></span>
-          Booked Services
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="user.html">
-              <span data-feather="users"></span>
-           Users
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2"></span>
-              Reports
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="createservice.html">
-              <span data-feather="layers"></span>
-            Menu
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="createservice.html">
-              <span data-feather="layers"></span>
-            Create Service
-            </a>
-          </li>
-        </ul>
+    <nav class="navbar navbar-dark navbar-expand-lg sticky-top bg-dark flex-md-nowrap p-0 shadow">
+      <div class="container-fluid px-md-5">
+          <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="../index.html">Plan your event</a>
+          <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+              data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> -->
+          <ul class="ml-auto navbar-nav px-3">
+              <li class="nav-item text-nowrap dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <img src="../assets/img/undraw_male_avatar_323b.svg" style="width: 40px; height: auto;"
+                          alt="user icon" class="img-rounded user-image">
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="javascript:void(0)" class="log-out">Logout</a>
+                  </div>
+              </li>
+          </ul>
       </div>
-    </nav>
+  </nav>
 
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">   
-        <p style="text-align: center;"><h2>Past Bookings</h2></p>
+  <div class="container-fluid">
+    <div class="row">
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+        <p style="text-align: center;">
+          <h2>Past Bookings</h2>
+        </p>
         <div class="table-responsive">
-            <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Name Of Customer</th>
-      <th scope="col">Day Booked</th>
-      <th scope="col">Ammount Page</th>
-      <th scope="col">Service type paid for</th>
-      <th scope="col">Date of the past Event</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-        <th scope="row">Peace Four</th>
-        <td>12/05/2020</td>
-        <td>#150,000</td>
-        <td>Catering Service</td>
-        <td>20/06/2020</td>
-      </tr>
-      <tr>
-        <th scope="row">Gladys Grace</th>
-        <td>09/05/2020</td>
-        <td>#50,000</td>
-        <td>Photography Service</td>
-        <td>12/06/2020</td>
-      </tr>
-      <tr>
-        <th scope="row">Happiness Rain</th>
-        <td>20/04/2020</td>
-        <td>#90,000</td>
-        <td>Makeup Service</td>
-        <td>20/05/2020</td>
-      </tr>
-      <tr>
-        <th scope="row">Nma Bola</th>
-        <td>2/05/2020</td>
-        <td>#40,000</td>
-        <td>Dj Service</td>
-        <td>20/04/2020</td>
-      </tr>
-      <tr>
-        <th scope="row">Esther Praise</th>
-        <td>20/03/2020</td>
-        <td>#70,000</td>
-        <td>Drink Vendor Service</td>
-        <td>20/04/2020</td>
-      </tr>
-      <tr>
-        <th scope="row">Waters Rexona</th>
-        <td>22/05/2020</td>
-        <td>#200,000</td>
-        <td>Event Hall Service</td>
-        <td>20/07/2020</td>
-      </tr>
-            </table>
-         </div>
-         </main>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name Of Customer</th>
+                <th scope="col">Day Booked</th>
+                <th scope="col">Ammount Page</th>
+                <th scope="col">Service type paid for</th>
+                <th scope="col">Date of the past Event</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Peace Four</th>
+                <td>12/05/2020</td>
+                <td>#150,000</td>
+                <td>Catering Service</td>
+                <td>20/06/2020</td>
+              </tr>
+              <tr>
+                <th scope="row">Gladys Grace</th>
+                <td>09/05/2020</td>
+                <td>#50,000</td>
+                <td>Photography Service</td>
+                <td>12/06/2020</td>
+              </tr>
+              <tr>
+                <th scope="row">Happiness Rain</th>
+                <td>20/04/2020</td>
+                <td>#90,000</td>
+                <td>Makeup Service</td>
+                <td>20/05/2020</td>
+              </tr>
+              <tr>
+                <th scope="row">Nma Bola</th>
+                <td>2/05/2020</td>
+                <td>#40,000</td>
+                <td>Dj Service</td>
+                <td>20/04/2020</td>
+              </tr>
+              <tr>
+                <th scope="row">Esther Praise</th>
+                <td>20/03/2020</td>
+                <td>#70,000</td>
+                <td>Drink Vendor Service</td>
+                <td>20/04/2020</td>
+              </tr>
+              <tr>
+                <th scope="row">Waters Rexona</th>
+                <td>22/05/2020</td>
+                <td>#200,000</td>
+                <td>Event Hall Service</td>
+                <td>20/07/2020</td>
+              </tr>
+          </table>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
+
+</html>
