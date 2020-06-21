@@ -61,10 +61,10 @@ getUserInfo = async () => {
                 return response.json();
             }
             else if(status === 403){
-                throw "invalid token"
+                throw "invalid token";
+            }else{
+                throw "an error occurred";
             }
-
-
         }
         return "";
     } catch(ex) {
@@ -76,7 +76,7 @@ getUserInfo = async () => {
 },
 signout = () => {
     window.localStorage.removeItem("user");
-    window.location.href = "index.html"
+    window.location.href = clientBaseUrl+"index.html"
 },
 dashboardsignout = () => {
     window.localStorage.removeItem("user");
@@ -103,7 +103,5 @@ getRootUrl = () => {
         ? window.location.origin + '/'
         : window.location.protocol + '/' + window.location.host + '/';
 },
-clientBaseUrl = getRootUrl(),
-apiBaseUrl = clientBaseUrl ==="http://localhost:5500/" ? "http://localhost:3000/":"https://fathomless-springs-44788.herokuapp.com/";
-
-
+clientBaseUrl = getRootUrl() ==="http://127.0.0.1:5500/"? getRootUrl() : getRootUrl()+'PlanIt/',
+apiBaseUrl = clientBaseUrl ==="http://127.0.0.1:5500/" ? "http://localhost:3000/":"https://fathomless-springs-44788.herokuapp.com/";

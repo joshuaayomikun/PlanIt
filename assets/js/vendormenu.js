@@ -1,19 +1,31 @@
-const menulist = [{
+const userstring = window.localStorage.getItem("user"),
+user = typeof userstring !== 'undefined' ? JSON.parse(userstring): "",
+menulist = [{
     menuname: "Dashboard",
-    menulink: "index.html"
+    menulink: "Vendor/index.html"
 },{
     menuname: "Event",
     menulink: ""
 },{
     menuname: "Booked Services",
-    menulink: "Bookedservices.html",
+    menulink: "Vendor/Bookedservices.html"
 },{
     menuname: "Users",
-    menulink: "user.html",
+    menulink: "Vendor/user.html"
 },{
     menuname: "Past Events",
-    menulink: "history.html",
+    menulink: "Vendor/history.html"
 },{
     menuname: "Create Service",
-    menulink: "createservice.html",
-}],
+    menulink: "Vendor/createservice.html"
+}];
+if(user) {
+    user.role.toLowerCase() !== "vendor"? (function(){
+        alert("You don't have access to this page!!");
+        signout()}()):""
+}
+// debugger
+makesidebar(menulist);
+
+
+
