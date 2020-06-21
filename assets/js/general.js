@@ -63,8 +63,6 @@ getUserInfo = async () => {
             else if(status === 403){
                 throw "invalid token"
             }
-
-
         }
         return "";
     } catch(ex) {
@@ -105,5 +103,3 @@ getRootUrl = () => {
 },
 clientBaseUrl = getRootUrl(),
 apiBaseUrl = clientBaseUrl ==="http://localhost:5500/" ? "http://localhost:3000/":"https://fathomless-springs-44788.herokuapp.com/";
-
-
