@@ -3,16 +3,16 @@ const userstring = window.localStorage.getItem("user"),
 user = typeof userstring !== 'undefined' ? JSON.parse(userstring): "",
 menulist = [{
     menuname: "Dashboard",
-    menulink: "index.html"
+    menulink: "admin/index.html"
 },{
     menuname: "Customers",
-    menulink: "user.html"
+    menulink: "admin/user.html"
 },{
-    menuname: "Reports",
+    menuname: "admin/Reports",
     menulink: "",
 },{
     menuname: "Vendors",
-    menulink: "listofvendors.html",
+    menulink: "admin/listofvendors.html",
 }];
 debugger
 if(user) {
