@@ -18,7 +18,7 @@ getAllServices = async() => {
 
         throw "Error in fetching"
     } catch(ex) {
-        toastnotification("error!", "Error in fteching")
+        toastnotification("error", ex.message)
     }
 },
 makeproductcard = ({discount, price, title, imageUrl, _id}) => {
@@ -93,8 +93,8 @@ consumeservices = (serviceType) => {
             return false;
           }
          })
-                              .filter((val, index) => index < 6);
-      shuffle(sixdiscount).forEach(product => productlist.appendChild(makeserviceproductcard(product)));  
+        .filter((val, index) => index < 6);
+        shuffle(sixdiscount).forEach(product => productlist.appendChild(makeserviceproductcard(product)));  
     
     })
 };
@@ -134,7 +134,7 @@ getUserInfo().then(data => {
         mydashboard.addEventListener("click", gotomydashboard)
     }
 }).catch(ex => {
-    debugger;
+    toastnotification("Error", ex.message)
     console.log(ex);
 });
 

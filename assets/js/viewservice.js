@@ -11,7 +11,7 @@ viewservice = async () => {
                 return (await response).json()
             throw "Error in fetching service"
         } catch (ex) {
-            toastnotification("error!!", ex.message);
+            toastnotification("error", ex.message);
         }
     },
     populatePage = async () => {

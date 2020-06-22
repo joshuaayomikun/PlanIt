@@ -69,7 +69,7 @@ $(document).ready(function () {
                 }
                 throw "Error in fetching"
             } catch(ex) {
-                toastnotification("Error", "An error occurred");
+                toastnotification("Error", ex.message);
                 console.error(ex);
             }
         },
@@ -87,7 +87,7 @@ $(document).ready(function () {
                 }
                 throw "Error in fetching"
             } catch(ex) {
-                toastnotification("Error", "An error occurred");
+                toastnotification("Error", ex.message);
                 console.error(ex);
             }
         },
@@ -117,7 +117,7 @@ $(document).ready(function () {
                     return response.json();
                 }
             } catch (ex) {
-                toastnotification("Error", "Error in fetching data");
+                toastnotification("Error", ex.message);
                 console.error(ex);
             }
         },
@@ -159,7 +159,7 @@ $(document).ready(function () {
                 throw "An error occurred"
             } catch (ex) {
 
-                toastnotification("Error", "Error in creating service");
+                toastnotification("Error", ex.message);
             }
             return false;
         }

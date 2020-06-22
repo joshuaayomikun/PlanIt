@@ -35,16 +35,16 @@ $(document).ready(function () {
     
         return response.json();
     },
-    selectgender = async (e) => {
+    selectgender = (e) => {
         e.preventDefault();
         try {
             const button = e.target;
             // debugger
-            Array.from(button.parentElement.children).forEach(async (but) => await but.classList.toggle("active"));
+            Array.from(button.parentElement.children).forEach( (but) => but.classList.toggle("active"));
             button.querySelector("input[type='radio']").checked = !button.querySelector("input[type='radio']")
             .checked;
         } catch(ex) {
-                toastnotification("Error", "An error occurred");
+                toastnotification("Error", ex.message);
             console.error(ex);
         }
     }
@@ -61,10 +61,10 @@ $(document).ready(function () {
                 toastnotification("Error", "user not registered");
             } catch(ex) {
 
-                toastnotification("Error", "Error in signing up");
+                toastnotification("Error", ex.message);
             }
             return false;
         }
     });
-    $(".gender").on('click', async (e) => await selectgender(e));
+    $(".gender").on('click', async (e) => selectgender(e));
 });

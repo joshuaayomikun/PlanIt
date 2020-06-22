@@ -2,16 +2,31 @@ const toastnotification = (heading, message) => {
     if(document.body.querySelector('.toast'))
     document.body.removeChild(document.body.querySelector('.toast'));
     const div = document.createElement("div"),
-        toast = document.createElement("div"),
-        toastheader = document.createElement("div"),
+        toast = div.cloneNode(),
+        toastheader = div.cloneNode(),
         strong = document.createElement("strong"),
         button = document.createElement("button"),
         span = document.createElement("span"),
-        toastbody = document.createElement("div");
+        toastbody =div.cloneNode();
     div.setAttribute("style", "position: relative; min-height: 200px;");
     div.setAttribute("aria-live", "polite");
     div.setAttribute("aria-atomic", "true");
-    toast.classList.add("toast");
+    toast.classList.add("toast", "shadow");
+    switch(heading.toLowerCase()) {
+        case "error":
+            toast.classList.add("bg-danger");
+            break;
+        case "success":
+            toast.classList.add("bg-danger");
+            break;
+        case "warning":
+            toast.classList.add("bg-warning");
+            break;
+        case "info":
+            toast.classList.add("bg-info");
+            break;
+
+    }
     toast.setAttribute("data-autohide", "false");
     toastheader.classList.add("toast-header");
     strong.classList.add("mr-auto");

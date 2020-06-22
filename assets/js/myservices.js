@@ -92,7 +92,7 @@ const table = document.querySelector('.my-servcies-table'),
     
                 }
             } catch (ex) {
-                toastnotification("Error", "An error occurred");
+                toastnotification("Error", ex.message);
                 console.error(ex);
             }
         },
@@ -114,7 +114,7 @@ const table = document.querySelector('.my-servcies-table'),
     
                 }
             } catch (ex) {
-                toastnotification("Error", "An error occurred");
+                toastnotification("Error", message);
                 console.error(ex);
             }
         }

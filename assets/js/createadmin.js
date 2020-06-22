@@ -39,7 +39,7 @@ adminsignup = async () => {
 
         throw "Error in fetch"
     } catch(ex) {
-        toastnotification("Error", "An error occurred");
+        toastnotification("Error", ex.message);
         console.error(ex);
     }
 },
@@ -52,7 +52,7 @@ selectgender = (e) => {
         button.querySelector("input[type='radio']").checked = !button.querySelector("input[type='radio']")
         .checked;
     } catch(ex) {
-            toastnotification("Error", "An error occurred");
+            toastnotification("Error", ex.message);
         console.error(ex);
     }
 };
@@ -77,7 +77,7 @@ submitHandler: async (form, event) => {
         }
     } catch(ex) {
 
-        toastnotification("Error", "Error in signing up");
+        toastnotification("Error", ex.message);
     }
     return false;
 }

@@ -20,7 +20,7 @@ $(loginform).validate({
             
             console.log({user});
         } catch(ex) {
-            toastnotification("Error", "Error in signing in " + ex);
+            toastnotification("Error", ex);
         }
     }
 });
