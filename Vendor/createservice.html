@@ -86,16 +86,29 @@
                   
                   <div class="col-lg-6 col-md-12">
                     <div class="form-group">
-                     <canvas class="service-canvas" width="300" height="300"></canvas>
+                     <canvas class="service-canvas" width="auto" height="300"></canvas>
                       <br/>
                       <input type="file" class="custom-file-input" id="customFile" name="filename" required>
                       <label class="custom-file-label position-relative" for="customFile">Picture</label>
                     </div>
                   </div>
                 </div>
-                
                 <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-lg-6 col-md-12">
+                    <div class="form-group">
+                      <label class="" for="address">Address</label>
+                      <textarea name="address" class="form-control" id="address" cols="30" rows="2"  required></textarea>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-12">
+                    <div class="form-group">
+                      <label class="" for="state">State</label>
+                      <input name="state" id="state" class="form-control" type="text" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-5 col-md-12">
                     <div class="form-group">
                       <label for="servicetype">Service Type</label>
                       <select class="custom-select d-block w-100" id="servicetype" name="servicetype" required>
@@ -109,10 +122,24 @@
                       </select>
                     </div>
                   </div>
-                  <div class="col-lg-6 col-md-12">
+                  <div class="col-lg-4 col-md-12">
                     <div class="form-group">
                       <label for="uname">Price:</label>
                       <input type="text" class="form-control" id="price" placeholder="Enter Price" name="price" required>
+                    </div>
+                  </div>
+                  <div class="col-lg-3  col-md-12">
+                    <div class="form-group">
+                      <label for="servicetype">Service Type</label>
+                      <select class="custom-select d-block w-100" id="discount" name="discount">
+                        <option value="" seleted>Choose...</option>
+                        <option value="5%">5%</option>
+                        <option value="10%">10%</option>
+                        <option value="20%">20%</option>
+                        <option value="33%">33%</option>
+                        <option value="50%">50%</option>
+                        <option value="75%">75%</option>
+                      </select>
                     </div>
                   </div>
                 </div>

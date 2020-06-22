@@ -7,7 +7,49 @@ const login = document.querySelector('.login'),
     mydashboard = profilename.cloneNode(true),
     logout = profilename.cloneNode(true),
     dropdownmenu = document.createElement("div"),
-    name = document.createTextNode("");
+    name = document.createTextNode(""),
+    
+getAllServices = async() => {
+    try{
+        const response = await fetch(`${apiBaseUrl}api/vendors/getAllService`);
+        if(response.ok)
+        if(response.ok)
+        return response.json();
+
+        throw "Error in fetching"
+    } catch(ex) {
+        toastnotification("error!", "Error in fteching")
+    }
+},
+makeproductcard = ({discount, price, title, imageUrl}) => {
+    const productcard = document.createElement("div"),
+      productimage = document.createElement("img"),
+      cardbody = productcard.cloneNode(),
+      cardlink = document.createElement("a"),
+      productprice = document.createElement("p"),
+      productdiscount = productcard.cloneNode();
+      
+      productprice.textContent = new Intl.NumberFormat(undefined, { style: 'currency', currency: 'NGN' }).format(price)
+      productdiscount.textContent = `LIMITED DEAL: ${discount} off `
+      cardlink.textContent = title;
+      productimage.src = imageUrl;
+
+      productcard.classList.add("card","product")
+      productimage.classList.add("card-img-top")
+      cardbody.classList.add("card-body")
+      cardlink.classList.add("card-link")
+      productprice.classList.add("card-text")
+      productdiscount.classList.add("card-text")
+
+      cardbody.appendChild(cardlink);
+      cardbody.appendChild(productprice);
+      cardbody.appendChild(productdiscount);
+      productcard.appendChild(productimage);
+      productcard.appendChild(cardbody);
+
+
+      return productcard;
+};
 dropdownmenu.classList.add("dropdown-menu")
 logout.classList.add("dropdown-item");
 logout.textContent = "logout";
@@ -24,7 +66,7 @@ profilename.appendChild(name);
 dropdownmenu.appendChild(mydashboard);
 dropdownmenu.appendChild(logout);
 usernav.appendChild(profilename);
-usernav.appendChild(dropdownmenu)
+usernav.appendChild(dropdownmenu);
 
 getUserInfo().then(data => {
     if(data) {

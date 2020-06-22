@@ -6,6 +6,9 @@ $(document).ready(function () {
         servicecanvas = document.querySelector('.service-canvas'),
         createserviceform = document.querySelector('#createserviceform'),
         servicetype = document.querySelector("#servicetype"),
+        address = document.querySelector("#address"),
+        state = document.querySelector("#servicetype"),
+        discount = document.querySelector("#discount"),
         userId = getUrlVars()['userid'],
         serviceid = getUrlVars()['serviceid'],
         loadFile = (event, url = "../assets/img/undraw_online_calendar_kvu2.svg") => {
@@ -43,7 +46,10 @@ $(document).ready(function () {
                     title: title.value,
                     imageUrl: servicecanvas.toDataURL(),
                     serviceType:servicetype.options[servicetype.selectedIndex].value,
-                    userId:user.userId
+                    discount:discount.options[discount.selectedIndex].value,
+                    userId:user.userId,
+                    state: state.value,
+                    address: address.value
                 };
             } catch (ex) {
                 console.error(ex);
@@ -89,12 +95,17 @@ $(document).ready(function () {
             const {service} = await getServiceById();
             price.value = service.price;
             title.value = service.title;
+            address.value = service.address;
+            state.value = service.state;
             $(description).summernote('destroy');
             description.value = decodeURIComponent(service.description)
             $(description).summernote();
             loadFile(null, service.imageUrl)
             Array.from(servicetype.options).forEach(option => 
                 option.selected = option.value === service.serviceType?true:false
+            );
+            Array.from(discount.options).forEach(option => 
+                option.selected = option.value === service.discount?true:false
             );
             createserviceform.id="editserviceform"
             console.log({service})
