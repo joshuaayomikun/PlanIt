@@ -121,7 +121,7 @@ $(document).ready(function () {
                 console.error(ex);
             }
         },
-        clearForm= ()=> {
+        clearForm= () => {
             loadFile(null);
             title.value = ""
             price.value = "";
@@ -133,6 +133,14 @@ $(document).ready(function () {
             address.value = "";
             state.value = ""
 
+        },
+        makeServiceTypeoOption = () =>{
+            user.serviceTypes.forEach(val => {
+                const option = document.createElement("option");
+                option.value = val;
+                option.textContent = val;
+                servicetype.appendChild(option);
+            })
         };
     $(description).summernote();
 
@@ -166,7 +174,7 @@ $(document).ready(function () {
     });
 
     loadFile(null, "../assets/img/undraw_online_calendar_kvu2.svg");
-
+    makeServiceTypeoOption();
     if(typeof userId !== "undefined" && typeof serviceid !== "undefined") {
         if(userId !== user.userId){
             alert("you don't have permission to view this page");
