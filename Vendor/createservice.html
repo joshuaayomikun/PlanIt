@@ -86,7 +86,7 @@
                   
                   <div class="col-lg-6 col-md-12">
                     <div class="form-group">
-                      <img src="../assets/img/undraw_online_calendar_kvu2.svg" class="service-image" style="height: 300px; width: auto;" alt="image for service">
+                     <canvas class="service-canvas" width="300" height="300"></canvas>
                       <br/>
                       <input type="file" class="custom-file-input" id="customFile" name="filename" required>
                       <label class="custom-file-label position-relative" for="customFile">Picture</label>
@@ -98,14 +98,14 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="servicetype">Service Type</label>
-                      <select class="custom-select d-block w-100" id="servicetype" required>
+                      <select class="custom-select d-block w-100" id="servicetype" name="servicetype" required>
                         <option value="" seleted>Choose...</option>
-                        <option>Caterers</option>
-                        <option>Djs</option>
-                        <option>Event Halls</option>
-                        <option>Photographers</option>
-                        <option>Drink Vendors</option>
-                        <option>Makeup Artists</option>
+                        <option value="Caterers">Caterers</option>
+                        <option value="Djs">Djs</option>
+                        <option value="Event Halls">Event Halls</option>
+                        <option value="Photographers">Photographers</option>
+                        <option value="Drink Vendors">Drink Vendors</option>
+                        <option value="Makeup Artists">Makeup Artists</option>
                       </select>
                     </div>
                   </div>

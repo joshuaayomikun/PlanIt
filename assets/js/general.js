@@ -103,5 +103,15 @@ getRootUrl = () => {
         ? window.location.origin + '/'
         : window.location.protocol + '/' + window.location.host + '/';
 },
+getUrlVars = () => {
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for (var i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+},
 clientBaseUrl = getRootUrl() ==="http://127.0.0.1:5500/"? getRootUrl() : getRootUrl()+'PlanIt/',
 apiBaseUrl = clientBaseUrl ==="http://127.0.0.1:5500/" ? "http://localhost:3000/":"https://fathomless-springs-44788.herokuapp.com/";

@@ -1,34 +1,115 @@
 $(document).ready(function () {
     const description = document.querySelector('#description'),
         pictureupload = document.querySelector('.custom-file-input'),
+        title = document.querySelector('#title'),
         price = document.querySelector('#price'),
-        serviceimage = document.querySelector('.service-image'),
+        servicecanvas = document.querySelector('.service-canvas'),
         createserviceform = document.querySelector('#createserviceform'),
-        loadFile = (event) => {
-            serviceimage.src = URL.createObjectURL(event.target.files[0]);
+        servicetype = document.querySelector("#servicetype"),
+        userId = getUrlVars()['userid'],
+        serviceid = getUrlVars()['serviceid'],
+        loadFile = (event, url = "../assets/img/undraw_online_calendar_kvu2.svg") => {
+            
+            context = servicecanvas.getContext('2d');
+            context.clearRect(0, 0, servicecanvas.width, servicecanvas.height);
+            const base_image = new Image();
+
+            if(event !== null)
+            base_image.src = typeof event.target.files[0] !== "undefined"? URL.createObjectURL(event.target.files[0]):url;
+            else
+            base_image.src = url;
+            base_image.onload = function(){
+                var wrh = base_image.width / base_image.height;
+                var newWidth = servicecanvas.width;
+                var newHeight = newWidth / wrh;
+                if (newHeight > servicecanvas.height) {
+                    newHeight = servicecanvas.height;
+                    newWidth = newHeight * wrh;
+                }
+
+                // context.clearRect(0, 0, servicecanvas.width, servicecanvas.height);
+                context.drawImage(base_image, 0, 0, newWidth, newHeight);
+            }
         },
+        formatter = new Intl.NumberFormat(undefined, {
+            style: 'currency',
+            currency: 'NGN',
+        }),
         getFormData = () => {
-            try{
+            try {
                 return {
-                    description: description.value,
-                    price:  price.parentElement.value, 
-                    username:  username.value, 
-                    name: name.value,
-                    password: password.value,
-                    gender:  Array.from(gender)
-                    .filter((check)=> check.checked)
-                    .map((check)=> check.value)
-                    .reduce((previousValue, currentValue) => {
-                        return `${currentValue}`;
-                    })
+                    description: encodeURIComponent(description.value),
+                    price: price.value,
+                    title: title.value,
+                    imageUrl: servicecanvas.toDataURL(),
+                    serviceType:servicetype.options[servicetype.selectedIndex].value,
+                    userId:user.userId
                 };
-            } catch(ex) {
+            } catch (ex) {
                 console.error(ex);
             }
         },
-        createservice = () =>{
-
-        } ;
+        createservice = async () => {
+            console.log(getFormData());
+            try{
+                const response = await fetch(`${apiBaseUrl}api/vendors/createService`, {
+                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                    headers: { 'Content-Type': 'application/json',  'x-access-token' : await user.token },
+                    body: JSON.stringify(getFormData()), // body data type must match "Content-Type" header
+                    user: JSON.stringify({id: user.id})
+                });
+                if(response.ok || response.status === 201) {
+                    return response.json()
+                }
+                throw "Error in fetching"
+            } catch(ex) {
+                toastnotification("Error", "An error occurred");
+                console.error(ex);
+            }
+        },
+        editservice = async () => {
+            console.log(getFormData());
+            try{
+                const response = await fetch(`${apiBaseUrl}api/vendors/editService/${serviceid}`, {
+                    method: 'PATCH', // *GET, POST, PUT, DELETE, etc.
+                    headers: { 'Content-Type': 'application/json',  'x-access-token' : await user.token },
+                    body: JSON.stringify(getFormData()), // body data type must match "Content-Type" header
+                    user: JSON.stringify({id: user.id})
+                });
+                if(response.ok || response.status === 201) {
+                    return response.json()
+                }
+                throw "Error in fetching"
+            } catch(ex) {
+                toastnotification("Error", "An error occurred");
+                console.error(ex);
+            }
+        },
+        populateForm = async() =>{
+            const {service} = await getServiceById();
+            price.value = service.price;
+            title.value = service.title;
+            $(description).summernote('destroy');
+            description.value = decodeURIComponent(service.description)
+            $(description).summernote();
+            loadFile(null, service.imageUrl)
+            Array.from(servicetype.options).forEach(option => 
+                option.selected = option.value === service.serviceType?true:false
+            );
+            createserviceform.id="editserviceform"
+            console.log({service})
+        },
+        getServiceById = async () => {
+            try {
+                const response = await fetch(`${apiBaseUrl}api/vendors/getSingleService/${serviceid}`);
+                if(response.ok) {
+                    return response.json();
+                }
+            } catch (ex) {
+                toastnotification("Error", "Error in fetching data");
+                console.error(ex);
+            }
+        };
     $(description).summernote();
 
     // Add the following code if you want the name of the file appear on select
@@ -38,26 +119,47 @@ $(document).ready(function () {
         loadFile(event);
     });
 
-    
-$(createserviceform).validate({
-submitHandler: async (form, event) => {
-    // await vendorsignup()
-    // debugger;
-    event.preventDefault();
-    try{
-        let re = await adminsignup();
-        if(await re.token) {
-            await toastnotification("Success!!", "Admin registered successfully click <a href='../login.html'>here</a> to login");
-        }
-        else{
-            await toastnotification("Error", "Vendor not registered");
-        }
-    } catch(ex) {
 
-        toastnotification("Error", "Error in signing up");
+    $(createserviceform).validate({
+        submitHandler: async (form, event) => {
+            // await vendorsignup()
+            // debugger;
+            event.preventDefault();
+            try {
+                let re = createserviceform.id === "editserviceform"? await editservice() : await createservice();
+                if (re) {
+                     toastnotification("Success!!", "Service Created successfully");
+                } 
+                else
+                throw "An error occurred"
+            } catch (ex) {
+
+                toastnotification("Error", "Error in creating service");
+            }
+            return false;
+        }
+    });
+
+    loadFile(null, "../assets/img/undraw_online_calendar_kvu2.svg");
+
+    if(typeof userId !== "undefined" && typeof serviceid !== "undefined") {
+        if(userId !== user.userId){
+            alert("you don't have permission to view this page");
+            window.location.href = "myservices.html"
+        } else {
+            populateForm();
+        }
     }
-    return false;
-}
-});
-
+    // price.addEventListener("onkeyup", () => {
+    //     setTimeout(()=>{
+    //         if(isNaN(price.value))
+    //         price.value = formatter.format(price.value);
+    //         // else {
+    //         //     const trimprice = price.value.trim();
+    //         //     const arr = trimprice.split(" ");
+    //         //     [arr1, ...arr2] = arr;
+    //         //     arr
+    //         // }
+    //     }, 1000);
+    // });
 });
