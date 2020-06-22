@@ -1,0 +1,1 @@
+consumeservices("drink vendors")

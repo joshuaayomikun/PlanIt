@@ -1,11 +1,13 @@
-const toastnotification = async (heading, message) => {
-    const div = await document.createElement("div");
-    const toast = await document.createElement("div");
-    const toastheader = await document.createElement("div");
-    const strong = await document.createElement("strong");
-    const button = await document.createElement("button");
-    const span = await document.createElement("span");
-    const toastbody = await document.createElement("div");
+const toastnotification = (heading, message) => {
+    if(document.body.querySelector('.toast'))
+    document.body.removeChild(document.body.querySelector('.toast'));
+    const div = document.createElement("div"),
+        toast = document.createElement("div"),
+        toastheader = document.createElement("div"),
+        strong = document.createElement("strong"),
+        button = document.createElement("button"),
+        span = document.createElement("span"),
+        toastbody = document.createElement("div");
     div.setAttribute("style", "position: relative; min-height: 200px;");
     div.setAttribute("aria-live", "polite");
     div.setAttribute("aria-atomic", "true");
@@ -28,7 +30,7 @@ const toastnotification = async (heading, message) => {
     toastheader.appendChild(button)
     toast.appendChild(toastheader);
     toast.appendChild(toastbody);
-    document.body.appendChild(await toast);
+    document.body.appendChild(toast);
     $(toast).toast('show')
     // <div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
     //     <div class="toast" style="position: absolute; top: 0; right: 0;">
@@ -103,5 +105,22 @@ getRootUrl = () => {
         ? window.location.origin + '/'
         : window.location.protocol + '/' + window.location.host + '/';
 },
+getUrlVars = () => {
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for (var i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+},
+shuffle = (a) => {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
 clientBaseUrl = getRootUrl() ==="http://127.0.0.1:5500/"? getRootUrl() : getRootUrl()+'PlanIt/',
 apiBaseUrl = clientBaseUrl ==="http://127.0.0.1:5500/" ? "http://localhost:3000/":"https://fathomless-springs-44788.herokuapp.com/";

@@ -27,13 +27,21 @@ getFormData = () =>{
     }
 },
 adminsignup = async () => {
-    const response = await fetch(`${apiBaseUrl}api/AdminSignup`, {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(getFormData()) // body data type must match "Content-Type" header
-    });
+    try{
+        const response = await fetch(`${apiBaseUrl}api/AdminSignup`, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(getFormData()) // body data type must match "Content-Type" header
+        });
+        if(response.ok)  {
+            return response.json();
+        }
 
-    return response.json();
+        throw "Error in fetch"
+    } catch(ex) {
+        toastnotification("Error", "An error occurred");
+        console.error(ex);
+    }
 },
 selectgender = (e) => {
     e.preventDefault();

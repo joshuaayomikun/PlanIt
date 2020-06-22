@@ -1,0 +1,1 @@
+consumeservices("event halls")

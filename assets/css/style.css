@@ -62,13 +62,17 @@ body{
   font-family: 'Numans', sans-serif;
 }
 
-.card.product{
-  height: 370px;
+.card.product {
+  height: auto;
   margin-top: auto;
   margin-bottom: auto;
-  width: 400px;
+  width: 340px;
   /* background-color: rgba(0,0,0,0.5) !important; */
+  flex: none;
+  margin: 20px;
 }
+
+
 
 .social_icon span{
   font-size: 60px;

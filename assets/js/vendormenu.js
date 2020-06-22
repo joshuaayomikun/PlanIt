@@ -18,6 +18,9 @@ menulist = [{
 },{
     menuname: "Create Service",
     menulink: "Vendor/createservice.html"
+},{
+    menuname: "My Services",
+    menulink: "Vendor/myservices.html"
 }];
 if(user) {
     user.role.toLowerCase() !== "vendor"? (function(){
