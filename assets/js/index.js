@@ -25,7 +25,7 @@ $('.owl-carousel').owlCarousel({
     let services = data.services;
     const sixdiscount = shuffle(services).filter(val => val.discount !== "" )
                             .filter((val, index) => index < 6);
-    shuffle(services).forEach(product => productlist.appendChild(makeproductcard(product)));  
+    shuffle(sixdiscount).forEach(product => productlist.appendChild(makeproductcard(product)));  
 
   })
     

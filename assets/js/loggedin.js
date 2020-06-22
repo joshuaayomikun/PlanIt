@@ -27,7 +27,7 @@ makeproductcard = ({discount, price, title, imageUrl}) => {
       cardbody = productcard.cloneNode(),
       cardlink = document.createElement("a"),
       productprice = document.createElement("p"),
-      productdiscount = productcard.cloneNode();
+      productdiscount = productprice.cloneNode();
       
       productprice.textContent = new Intl.NumberFormat(undefined, { style: 'currency', currency: 'NGN' }).format(price)
       productdiscount.textContent = `LIMITED DEAL: ${discount} off `
@@ -49,6 +49,52 @@ makeproductcard = ({discount, price, title, imageUrl}) => {
 
 
       return productcard;
+},
+makeserviceproductcard = ({address, state, title, imageUrl}) => {
+    const productcard = document.createElement("div"),
+      productimage = document.createElement("img"),
+      cardbody = productcard.cloneNode(),
+      cardlink = document.createElement("a"),
+      productlocation = document.createElement("p"),
+      viewprofile = cardlink.cloneNode();
+      
+      productlocation.textContent = `${address} ${state}`
+      viewprofile.textContent = "View profile"
+      cardlink.textContent = title;
+      productimage.src = imageUrl;
+
+      productcard.classList.add("card","product")
+      productimage.classList.add("card-img-top")
+      cardbody.classList.add("card-body")
+      cardlink.classList.add("card-link")
+      productlocation.classList.add("card-text")
+      viewprofile.classList.add("btn", "btn-primary")
+
+      cardbody.appendChild(cardlink);
+      cardbody.appendChild(productlocation);
+      cardbody.appendChild(viewprofile);
+      productcard.appendChild(productimage);
+      productcard.appendChild(cardbody);
+
+
+      return productcard;
+},
+consumeservices = (serviceType) => {
+    getAllServices().then(data => {
+        console.log(data);
+      const productlist = document.querySelector(".product-list");
+      let services = data.services;
+      const sixdiscount = shuffle(services).filter(val =>{
+          if(val.serviceType) {
+            return val.serviceType.toLowerCase().trim() === serviceType;
+          }else {
+            return false;
+          }
+         })
+                              .filter((val, index) => index < 6);
+      shuffle(sixdiscount).forEach(product => productlist.appendChild(makeserviceproductcard(product)));  
+    
+    })
 };
 dropdownmenu.classList.add("dropdown-menu")
 logout.classList.add("dropdown-item");
@@ -89,6 +135,8 @@ getUserInfo().then(data => {
     debugger;
     console.log(ex);
 });
+
+
 
 // <li class="nav-item text-nowrap dropdown">
 //           <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
