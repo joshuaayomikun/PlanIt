@@ -21,7 +21,7 @@ getAllServices = async() => {
         toastnotification("error!", "Error in fteching")
     }
 },
-makeproductcard = ({discount, price, title, imageUrl}) => {
+makeproductcard = ({discount, price, title, imageUrl, _id}) => {
     const productcard = document.createElement("div"),
       productimage = document.createElement("img"),
       cardbody = productcard.cloneNode(),
@@ -33,6 +33,7 @@ makeproductcard = ({discount, price, title, imageUrl}) => {
       productdiscount.textContent = `LIMITED DEAL: ${discount} off `
       cardlink.textContent = title;
       productimage.src = imageUrl;
+      cardlink.href = `viewservice.html?serviceid=${_id}`
 
       productcard.classList.add("card","product")
       productimage.classList.add("card-img-top")
@@ -50,7 +51,7 @@ makeproductcard = ({discount, price, title, imageUrl}) => {
 
       return productcard;
 },
-makeserviceproductcard = ({address, state, title, imageUrl}) => {
+makeserviceproductcard = ({address, state, title, imageUrl, _id}) => {
     const productcard = document.createElement("div"),
       productimage = document.createElement("img"),
       cardbody = productcard.cloneNode(),
@@ -62,6 +63,7 @@ makeserviceproductcard = ({address, state, title, imageUrl}) => {
       viewprofile.textContent = "View profile"
       cardlink.textContent = title;
       productimage.src = imageUrl;
+      cardlink.href = `viewservice.html?serviceid=${_id}`
 
       productcard.classList.add("card","product")
       productimage.classList.add("card-img-top")
