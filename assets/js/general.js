@@ -122,5 +122,5 @@ shuffle = (a) => {
     }
     return a;
 }
-clientBaseUrl = getRootUrl() ==="http://127.0.0.1:5500/"? getRootUrl() : getRootUrl()+'PlanIt/',
-apiBaseUrl = clientBaseUrl ==="http://127.0.0.1:5500/" ? "http://localhost:3000/":"https://fathomless-springs-44788.herokuapp.com/";
+clientBaseUrl = getRootUrl() ==="http://127.0.0.1:5501/"? getRootUrl() : getRootUrl()+'PlanIt/',
+apiBaseUrl = clientBaseUrl ==="http://127.0.0.1:5501/" ? "http://localhost:3000/":"https://fathomless-springs-44788.herokuapp.com/";

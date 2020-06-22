@@ -120,6 +120,19 @@ $(document).ready(function () {
                 toastnotification("Error", "Error in fetching data");
                 console.error(ex);
             }
+        },
+        clearForm= ()=> {
+            loadFile(null);
+            title.value = ""
+            price.value = "";
+            $(description).summernote('destroy');
+            description.value = "";
+            $(description).summernote();
+            servicetype.selectedIndex = 0;
+            discount.selectedIndex = 0;
+            address.value = "";
+            state.value = ""
+
         };
     $(description).summernote();
 
@@ -140,7 +153,8 @@ $(document).ready(function () {
                 let re = createserviceform.id === "editserviceform"? await editservice() : await createservice();
                 if (re) {
                      toastnotification("Success!!", "Service Created successfully");
-                } 
+                     clearForm();
+                    } 
                 else
                 throw "An error occurred"
             } catch (ex) {
