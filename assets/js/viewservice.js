@@ -24,18 +24,15 @@ const serviceid = getUrlVars()['serviceid'],
         } = response;
 
         title.textContent = service.title;
+        title.id = service._id;
         description.innerHTML = decodeURIComponent(service.description);
         image.src = service.imageUrl;
         price.appendChild(document.createTextNode(new Intl.NumberFormat(undefined, { style: 'currency', currency: 'NGN' }).format(service.price)))
         servicespan.appendChild(document.createTextNode(service.serviceType));
-        booknow.href = `payment.html?serviceid=${service._id}`
-    },
-    populateCart = (e) => {
-        e.preventDefault();
-        if(typeof user === "undefined")
-            alert("You need to sign in")
+        // booknow.href = `payment.html?serviceid=${service._id}`
+    };
 
-    }
+    addToCart.addEventListener("click", e=>populateCart(e, {serviceId:title.id, userId:user.userId,}));
 
 if (typeof serviceid !== "undefined") {
     populatePage();

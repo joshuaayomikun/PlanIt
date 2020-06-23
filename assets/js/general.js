@@ -1,7 +1,8 @@
 
-const userstring = window.localStorage.getItem("user");
-const user = typeof userstring !== 'undefined' ? JSON.parse(userstring): "";
-const toastnotification = (heading, message) => {
+const userstring = window.localStorage.getItem("user"),
+user = typeof userstring !== 'undefined' ? JSON.parse(userstring): "",
+redirecturl = window.location.href,
+toastnotification = (heading, message) => {
     if(document.body.querySelector('.toast'))
     document.body.removeChild(document.body.querySelector('.toast'));
     const div = document.createElement("div"),
@@ -180,3 +181,7 @@ removeSpinner = () => {
 },
 clientBaseUrl = getRootUrl() ==="http://127.0.0.1:5501/"? getRootUrl() : getRootUrl()+'PlanIt/',
 apiBaseUrl = clientBaseUrl ==="http://127.0.0.1:5501/" ? "http://localhost:3000/":"https://fathomless-springs-44788.herokuapp.com/";
+
+setTimeout(function() {
+    feather.replace()
+},1)

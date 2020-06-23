@@ -8,6 +8,21 @@ const login = document.querySelector('.login'),
     logout = profilename.cloneNode(true),
     dropdownmenu = document.createElement("div"),
     name = document.createTextNode(""),
+    makeShoppingCart = () => {
+        const licart = document.createElement("li"),
+        cartspan = document.createElement("span"),
+        badgespan = cartspan.cloneNode();
+        badgespan.classList.add("badge", "badge-danger", "cart-count", "m-auto");
+        badgespan.textContent = 0;
+        licart.classList.add("nav-item", "text-white", "d-flex");
+        cartspan.setAttribute("data-feather", "shopping-cart");
+        cartspan.classList.add("m-auto");
+        licart.appendChild(cartspan)
+        licart.appendChild(badgespan)
+        setTimeout(() => feather.replace(),1 );
+        return licart;
+
+    },
 
     getAllServices = async () => {
             try {
@@ -118,6 +133,33 @@ const login = document.querySelector('.login'),
                 shuffle(sixdiscount).forEach(product => productlist.appendChild(makeserviceproductcard(product)));
 
             })
+        },
+        populateCart = async (e, ServiceCredendtials = {}) => {
+            e.preventDefault();
+            makeSpinner()
+            try{
+            if(typeof user === "undefined"){
+                alert("You need to sign in")
+                 window.location.href = `login.html?redirecturl=${redirecturl}`
+                 removeSpinner()
+                return;
+            }
+            const response = await fetch(`${apiBaseUrl}api/addToCart`, {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(ServiceCredendtials) // body data type must match "Content-Type" header
+            });
+
+            if(response.ok || response.status=== 200 || response.status === 201){
+                removeSpinner();
+                return response.json();
+            }
+
+            throw Error;
+    
+            } catch(ex) {
+                removeSpinner()
+            }
         };
 dropdownmenu.classList.add("dropdown-menu")
 logout.classList.add("dropdown-item");
@@ -147,7 +189,8 @@ if( user !== null) {
             //     window.location.href = "logi"
             // }
             // debugger;
-            login.parentNode.appendChild(usernav);
+            login.parentElement.appendChild(usernav);
+            usernav.parentElement.appendChild(makeShoppingCart());
             login.parentNode.removeChild(login);
             vendorreg.parentNode.removeChild(vendorreg);
             usersignup.parentNode.removeChild(usersignup);
