@@ -1,1 +1,1 @@
-consumeservices("djs")
+consumeservices("dj")

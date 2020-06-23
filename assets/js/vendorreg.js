@@ -36,15 +36,27 @@ $(document).ready(function () {
             }
         },
         vendorsignup = async () => {
+            try{
+                
+                makeSpinner()
             const response = await fetch(`${apiBaseUrl}api/vendorSignup`, {
                 method: 'POST', // *GET, POST, PUT, DELETE, etc.
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(await getFormData()) // body data type must match "Content-Type" header
             });
-
-            return response.json();
+            if(response.ok || response.status === 201 || response.status === 200){
+                
+                removeSpinner()
+                return response.json();
+            }
+            throw "An error Occurred"
+            } catch(ex) {
+                toastnotification("error", ex.message)
+                
+                removeSpinner()
+            }
         },
-        selectservice = async (e) => {
+        selectservice = (e) => {
             e.preventDefault();
             try {
                 const button = e.target;
@@ -53,20 +65,20 @@ $(document).ready(function () {
                 .checked;
                 button.classList.toggle("active");
             } catch(ex) {
-                    toastnotification("Error", "An error occurred");
+                    toastnotification("Error", ex.message);
                 console.error(ex);
             }
         },
-        selectgender = async (e) => {
+        selectgender = (e) => {
             e.preventDefault();
             try {
                 const button = e.target;
                 // debugger
-                Array.from(button.parentElement.children).forEach(async (but) => await but.classList.toggle("active"));
+                Array.from(button.parentElement.children).forEach( (but) => but.classList.toggle("active"));
                 button.querySelector("input[type='radio']").checked = !button.querySelector("input[type='radio']")
                 .checked;
             } catch(ex) {
-                    toastnotification("Error", "An error occurred");
+                toastnotification("Error", ex.message);
                 console.error(ex);
             }
         };
@@ -78,19 +90,19 @@ $(document).ready(function () {
             try{
                 let re = await vendorsignup();
                 if(await re.token) {
-                    await toastnotification("Success!!", "Vendor registered successfully click <a href='login.html'>here</a> to login");
+                    await toastnotification("Success", "Vendor registered successfully click <a href='login.html'>here</a> to login");
                 }
                 else{
                     await toastnotification("Error", "Vendor not registered");
                 }
             } catch(ex) {
 
-                toastnotification("Error", "Error in signing up");
+                toastnotification("Error", ex.message);
             }
             return false;
         }
     });
 
-    $(".service").on('click', async (e) => await selectservice(e));
-    $(".gender").on('click', async (e) => await selectgender(e));
+    $(".service").on('click',selectservice);
+    $(".gender").on('click', selectgender);
 });

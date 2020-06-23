@@ -1,18 +1,17 @@
 const table = document.querySelector('.my-servcies-table'),
     tbody = table.querySelector('tbody'),
-    getMyServices = async () => {
+    getAllServices = async () => {
             try {
                 
                 makeSpinner()
-                const response = await fetch(`${apiBaseUrl}api/vendors/getServiceByVendorId/${user.userId}`, {
+                const response = await fetch(`${apiBaseUrl}api/vendors/adminGetSAllervice`, {
                     method: 'GET', // *GET, POST, PUT, DELETE, etc.
                     headers: {
-                        'Content-Type': 'application/json',
-                        'x-access-token': await user.token
+                        'Content-Type': 'application/json'
                     } // body data type must match "Content-Type" header
                 });
                 // debugger
-                if (response.ok || response.status === 201 || reponse.status === 200) {
+                if(response.ok || response.status === 201 || response.status === 200){
                     
                     removeSpinner()
                     return response.json();
@@ -20,26 +19,39 @@ const table = document.querySelector('.my-servcies-table'),
                     throw "an error occurred";
                 }
             } catch (ex) {
-                toastnotification("Error", ex.message);
                 
                 removeSpinner()
+                toastnotification("Error", "Can't get services");
             }
 
         },
     populateTable = async () => {
-            const myservices = await getMyServices();
+            const {services} = await getAllServices();
             tbody.textContent = "";
-            myservices.service.forEach((val, index) => {
+            await services.forEach(async (val, index) => {
                 const td1 = document.createElement("td"),
                     td2 = td1.cloneNode(),
                     td3 = td1.cloneNode(),
                     td4 = td1.cloneNode(),
                     td5 = td1.cloneNode(),
                     td6 = td1.cloneNode(),
+                    td7 = td1.cloneNode(),
+                    td8 = td1.cloneNode(),
                     tr = document.createElement("tr"),
                     editbutton = document.createElement("a"),
                     deactivatebutton = document.createElement("button"),
                     activatebutton = deactivatebutton.cloneNode();
+                    if(typeof val !== "undefined"){
+                        if(typeof val.userId !== "undefined") {
+                            if(val.userId !== ""){
+                               const vendor = await getUserInfo(val.userId);
+                               if( typeof vendor !== "undefined"){
+                                    td7.textContent = vendor.user.name;
+                                    td8.textContent = vendor.user.email;
+                                }  
+                            }
+                        }
+                    } 
                 deactivatebutton.type = 'button';
                 activatebutton.type = 'button';
                 deactivatebutton.classList.add("btn", "btn-danger", "m-1");
@@ -67,11 +79,17 @@ const table = document.querySelector('.my-servcies-table'),
                 tr.appendChild(td3);
                 td4.textContent = val.serviceType;
                 tr.appendChild(td4);
+                tr.appendChild(td7);
+                tr.appendChild(td8);
                 td5.textContent = val.createdAt;
                 tr.appendChild(td5);
                 deactivatebutton.textContent = "Deactivate";
                 activatebutton.textContent = "Activate";
-                editbutton.href = `createservice.html?userid=${user.userId}&serviceid=${val._id}`;
+                editbutton.href = `editservice.html?&serviceId=${val._id}`;
+                if(typeof val.userId !== "undefined"){
+                    if(val.userId !== "")
+                    editbutton.href = `editservice.html?userId=${val.userId}&serviceId=${val._id}`;
+                }
                 editbutton.textContent = "Edit"
                 val.active ? td6.appendChild(editbutton) : "";
                 td6.appendChild(val.active ? deactivatebutton : activatebutton);
@@ -93,7 +111,7 @@ const table = document.querySelector('.my-servcies-table'),
                             'x-access-token': await user.token
                         }
                     });
-                    if (response.ok || response.status === 201) {
+                    if(response.ok || response.status === 201 || response.status === 200){
                         
                     removeSpinner()
                         return response.json()
@@ -103,9 +121,9 @@ const table = document.querySelector('.my-servcies-table'),
                 }
             } catch (ex) {
                 toastnotification("Error", ex.message);
-                // console.error(ex);
                 
                 removeSpinner()
+                // console.error(ex);
             }
         },
         activateService = async (serviceid) => {
@@ -121,7 +139,7 @@ const table = document.querySelector('.my-servcies-table'),
                             'x-access-token': await user.token
                         }
                     });
-                    if (response.ok || response.status === 201) {
+                    if(response.ok || response.status === 201 || response.status === 200){
                         
                     removeSpinner()
                         return response.json()
@@ -130,10 +148,10 @@ const table = document.querySelector('.my-servcies-table'),
     
                 }
             } catch (ex) {
-                toastnotification("Error", message);
-                // console.error(ex);
                 
                 removeSpinner()
+                toastnotification("Error", message);
+                // console.error(ex);
             }
         }
 

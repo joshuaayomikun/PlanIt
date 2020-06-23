@@ -7,10 +7,11 @@ $(document).ready(function () {
         createserviceform = document.querySelector('#createserviceform'),
         servicetype = document.querySelector("#servicetype"),
         address = document.querySelector("#address"),
-        state = document.querySelector("#servicetype"),
+        state = document.querySelector("#state"),
         discount = document.querySelector("#discount"),
-        userId = getUrlVars()['userid'],
-        serviceid = getUrlVars()['serviceid'],
+        vendor = document.querySelector("#vendor"),
+        userId = getUrlVars()['userId'],
+        serviceId = getUrlVars()['serviceId'],
         loadFile = (event, url = "../assets/img/undraw_online_calendar_kvu2.svg") => {
             var myImage = new Image();
             myImage.crossOrigin = "Anonymous";
@@ -37,7 +38,7 @@ $(document).ready(function () {
                     imageUrl: canvas.toDataURL(),
                     serviceType:servicetype.options[servicetype.selectedIndex].value,
                     discount:discount.options[discount.selectedIndex].value,
-                    userId:user.userId,
+                    userId:vendor.options[vendor.selectedIndex].value,
                     state: state.value,
                     address: address.value
                 };
@@ -45,57 +46,29 @@ $(document).ready(function () {
                 console.error(ex);
             }
         },
-        createservice = async () => {
-            console.log(getFormData());
-            try{
-                
-                makeSpinner()
-                const response = await fetch(`${apiBaseUrl}api/vendors/createService`, {
-                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-                    headers: { 'Content-Type': 'application/json',  'x-access-token' : await user.token },
-                    body: JSON.stringify(getFormData()), // body data type must match "Content-Type" header
-                    user: JSON.stringify({id: user.id})
-                });
-                if(response.ok || response.status === 201 || response.status === 200){
-                    
-                    removeSpinner()
-                    return response.json()
-                }
-                throw "Error in fetching"
-            } catch(ex) {
-                toastnotification("Error", ex.message);
-                
-                removeSpinner()
-                // console.error(ex);
-            }
-        },
         editservice = async () => {
-            // console.log(getFormData());
-            
-            makeSpinner()
             try{
-                const response = await fetch(`${apiBaseUrl}api/vendors/editService/${serviceid}`, {
+                makeSpinner()
+                const response = await fetch(`${apiBaseUrl}api/vendors/adminEditService/${serviceId}`, {
                     method: 'PATCH', // *GET, POST, PUT, DELETE, etc.
                     headers: { 'Content-Type': 'application/json',  'x-access-token' : await user.token },
                     body: JSON.stringify(getFormData()), // body data type must match "Content-Type" header
                     user: JSON.stringify({id: user.id})
                 });
-                if(response.ok || response.status === 201 || response.status === 200){
-                    
-                
+                if(response.ok || response.status === 201) {
                     removeSpinner()
                     return response.json()
                 }
                 throw "Error in fetching"
             } catch(ex) {
                 toastnotification("Error", ex.message);
-                
-                removeSpinner()
                 // console.error(ex);
+                removeSpinner()
             }
         },
         populateForm = async() =>{
             const {service} = await getServiceById();
+            await getServiceTypeVendorById()
             price.value = service.price;
             title.value = service.title;
             address.value = service.address;
@@ -110,24 +83,77 @@ $(document).ready(function () {
             Array.from(discount.options).forEach(option => 
                 option.selected = option.value === service.discount?true:false
             );
+
+            if(typeof userId !== "undefined"){
+                if(userId !=="")
+                Array.from(vendor.options).forEach(option => 
+                    option.selected = option.value === service.userId?true:false
+                );
+            }
             createserviceform.id="editserviceform"
             console.log({service})
         },
         getServiceById = async () => {
             try {
-                
                 makeSpinner()
-                const response = await fetch(`${apiBaseUrl}api/vendors/getSingleService/${serviceid}`);
-                if(response.ok || response.status === 201 || response.status === 200){
-                    
+                const response = await fetch(`${apiBaseUrl}api/vendors/getSingleService/${serviceId}`);
+                if(response.ok) {
                     removeSpinner()
                     return response.json();
                 }
             } catch (ex) {
                 toastnotification("Error", ex.message);
-                
-                removeSpinner()
                 // console.error(ex);
+                removeSpinner()
+            }
+        },
+        getServiceTypeVendorById = async () => {
+            try {
+                // debugger
+                let c = userId;
+                if(typeof c === "undefined")
+                    c = vendor.options[vendor.selectedIndex].value;
+                if(typeof c !== "undefined"){
+                    if(c !== ""){
+                        // debugger
+                        const response = await getUserInfo(c),
+                        defaultoption = document.createElement("option");
+                        defaultoption.value="";
+                        defaultoption.textContent="Choose...";
+                        servicetype.textContent ="";
+                        servicetype.appendChild(defaultoption);
+                        // debugger
+                        if(typeof response.user.services !== "undefined"){
+                            if(response.user.services !== ""){
+                                const d = response.user.services.split(",");
+                                // debugger
+                                d.forEach(serviceTyp =>{
+                                        
+                                    const option = document.createElement("option");
+                                        option.value = serviceTyp
+                                        option.textContent = serviceTyp
+                                    servicetype.append(option);
+                                });
+                                return true;
+                            }
+                        }
+
+                    }
+                }
+                vendor.addEventListener("change", ()=>{
+                    getServiceTypeVendorById()
+                });
+
+                servicetype.innerHTML = `<option value="">Choose...</option>
+                <option>Caterers</option>
+                <option>Djs</option>
+                <option>Event Halls</option>
+                <option>Photographers</option>
+                <option>Drink Vendors</option>
+                <option>Makeup Artists</option>`
+            } catch (ex) {
+                toastnotification("Error", ex.message);
+                console.error(ex);
             }
         },
         clearForm= () => {
@@ -149,6 +175,18 @@ $(document).ready(function () {
                 option.value = val;
                 option.textContent = val;
                 servicetype.appendChild(option);
+            })
+        },
+        makeVendoroption = async () => {
+            const {
+                vendors
+            } = await getVendors();
+            vendors.forEach(vendoruser => {
+
+                const option = document.createElement("option");
+                option.value = vendoruser._id
+                option.textContent = vendoruser.name+ "   "+  vendoruser.services
+                vendor.appendChild(option);
             })
         },
         removeImageBlanks = (imageObject) => {
@@ -232,7 +270,7 @@ $(document).ready(function () {
             return canvas.toDataURL();
         };
     $(description).summernote();
-
+    makeVendoroption()
     // Add the following code if you want the name of the file appear on select
     $(pictureupload).on("change", function (event) {
         const fileName = $(this).val().split("\\").pop();
@@ -247,10 +285,10 @@ $(document).ready(function () {
             // debugger;
             event.preventDefault();
             try {
-                let re = createserviceform.id === "editserviceform"? await editservice() : await createservice();
+                let re = await editservice()
                 if (re) {
                      toastnotification("Success", "Service Created successfully");
-                     clearForm();
+                     // clearForm();
                     } 
                 else
                 throw "An error occurred"
@@ -263,14 +301,14 @@ $(document).ready(function () {
     });
 
     loadFile(null, "../assets/img/undraw_online_calendar_kvu2.svg");
-    makeServiceTypeoOption();
-    if(typeof userId !== "undefined" && typeof serviceid !== "undefined") {
-        if(userId !== user.userId){
-            alert("you don't have permission to view this page");
-            window.location.href = "myservices.html"
-        } else {
+    // makeServiceTypeoOption();
+    if(typeof serviceId !== "undefined") {
             populateForm();
-        }
+            if(typeof userId !== "undefined")
+            vendor.setAttribute("disabled", true)
+    } else {
+        alert("you need to select a service")
+        window.location.href="allservices.html"
     }
     // price.addEventListener("onkeyup", () => {
     //     setTimeout(()=>{

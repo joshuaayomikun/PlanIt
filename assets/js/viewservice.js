@@ -3,15 +3,17 @@ const serviceid = getUrlVars()['serviceid'],
     description = document.querySelector(".description"),
     servicespan = document.querySelector(".service"),
     image = document.querySelector(".checkout-image"),
-    price = document.querySelector(".price")
-viewservice = async () => {
+    price = document.querySelector(".price"),
+    booknow = document.querySelector(".book-now"),
+    addToCart = document.querySelector("add-to-card"),
+    viewservice = async () => {
         try {
             const response = fetch(`${apiBaseUrl}api/vendors/getSingleService/${serviceid}`);
             if ((await response).ok || (await response).status === 200)
                 return (await response).json()
             throw "Error in fetching service"
         } catch (ex) {
-            toastnotification("error!!", ex.message);
+            toastnotification("error", ex.message);
         }
     },
     populatePage = async () => {
@@ -25,7 +27,14 @@ viewservice = async () => {
         description.innerHTML = decodeURIComponent(service.description);
         image.src = service.imageUrl;
         price.appendChild(document.createTextNode(new Intl.NumberFormat(undefined, { style: 'currency', currency: 'NGN' }).format(service.price)))
-        servicespan.appendChild(document.createTextNode(service.serviceType))
+        servicespan.appendChild(document.createTextNode(service.serviceType));
+        booknow.href = `payment.html?serviceid=${service._id}`
+    },
+    populateCart = (e) => {
+        e.preventDefault();
+        if(typeof user === "undefined")
+            alert("You need to sign in")
+
     }
 
 if (typeof serviceid !== "undefined") {

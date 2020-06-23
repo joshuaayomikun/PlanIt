@@ -14,7 +14,7 @@
   <link href="../assets/css/dashboard.css" rel="stylesheet">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  
   <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 <body>
@@ -32,7 +32,7 @@
           <ul class="ml-auto navbar-nav px-3">
               <li class="nav-item text-nowrap dropdown">
                   <a class="align-items-center d-flex dropdown-toggle flex-row nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="../assets/img/undraw_male_avatar_323b.svg" style="width: 40px; height: auto;" alt="user icon" class="img-rounded m-3 user-image"><div class="mr-3"><p class="m-0 profile-name">Joshn Doe</p><p class="m-0 profile-role">vendor</p></div>
+            <img src="../assets/img/undraw_male_avatar_323b.svg" style="width: 40px; height: auto;" alt="user icon" class="img-rounded m-3 user-image"><div class="mr-3"><p class="m-0 profile-name"></p><p class="m-0 profile-role"></p></div>
           </a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                       <a class="dropdown-item log-out" href="javascript:void(0)">Logout</a>
@@ -49,93 +49,19 @@
             <h2>List of all User
           </b></h2>
         </caption>
-        <table class="table">
+        <table class="table vendor-table">
 
           <thead>
             <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Username</th>
+              <th scope="col">S/N</th>
               <th scope="col">Name</th>
-              <th scope="col">Last Activity</th>
-              <th scope="col">Verified</th>
-              <th scope="col">Role</th>
+              <th scope="col">Email</th>
+              <th scope="col">Username</th>
               <th scope="col">Status</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">300</th>
-              <td>Dean86</td>
-              <td>Dean Stanley</td>
-              <td>10/6/2020</td>
-              <td>No</td>
-              <td>Vendor Owner</td>
-              <td>Active</td>
-            </tr>
-
-            <tr>
-              <th scope="row">301</th>
-              <td>zena0604</td>
-              <td>Zena Buckley</td>
-              <td>10/6/2020</td>
-              <td>Yes</td>
-              <td>User</td>
-              <td>Active</td>
-            </tr>
-            <tr>
-              <th scope="row">302</th>
-              <td>delilah0301</td>
-              <td>Delilah Moon</td>
-              <td>13/6/2020</td>
-              <td>Yes</td>
-              <td>User</td>
-              <td>7Active</td>
-            </tr>
-            <tr>
-              <th scope="row">303</th>
-              <td>hillary1807</td>
-              <td>Hillary Peace</td>
-              <td>13/6/2020</td>
-              <td>No</td>
-              <td>Vendor Owner</td>
-              <td>Baned</td>
-            </tr>
-            <tr>
-              <th scope="row">304</th>
-              <td>herman2003</td>
-              <td>Herman Tate</td>
-              <td>09/6/2020</td>
-              <td>No</td>
-              <td>Vendor Owner</td>
-              <td>Baned</td>
-            </tr>
-            <tr>
-              <th scope="row">305</th>
-              <td>kuame3008</td>
-              <td>Kuame Ford</td>
-              <td>14/6/2020</td>
-              <td>Yes</td>
-              <td>User</td>
-              <td>Active</td>
-            </tr>
-            <tr>
-              <th scope="row">306</th>
-              <td>treestop4005</td>
-              <td>Betty Peace</td>
-              <td>14/6/2020</td>
-              <td>Yes</td>
-              <td>User</td>
-              <td>Active</td>
-            </tr>
-            <tr>
-              <th scope="row">307</th>
-              <td>Ore86</td>
-              <td>Oreoluwa Joy</td>
-              <td>10/6/2020</td>
-              <td>Yes</td>
-              <td>User</td>
-              <td>Active</td>
-            </tr>
           </tbody>
         </table>
       </main>
@@ -147,7 +73,7 @@
   <script>
     window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
@@ -158,5 +84,6 @@
   <script src="../assets/js/general.js"></script>
   <script src="../assets/js/dashboard.js"></script>
   <script src="../assets/js/adminmenu.js"></script>
+  <script src="../assets/js/allcustomers.js"></script>
 </body>
 </html>

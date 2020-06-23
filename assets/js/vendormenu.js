@@ -1,6 +1,4 @@
-const userstring = window.localStorage.getItem("user"),
-user = typeof userstring !== 'undefined' ? JSON.parse(userstring): "",
-menulist = [{
+const menulist = [{
     menuname: "Dashboard",
     menulink: "Vendor/index.html"
 },{

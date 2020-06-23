@@ -1,7 +1,5 @@
 
-const userstring = window.localStorage.getItem("user"),
-user = typeof userstring !== 'undefined' ? JSON.parse(userstring): "",
-username = document.querySelector("#username"),
+const username = document.querySelector("#username"),
 passcode = document.querySelector("#passcode"),
 email = document.querySelector("#email"),
 name = document.querySelector("#name"),
@@ -28,19 +26,25 @@ getFormData = () =>{
 },
 adminsignup = async () => {
     try{
+        
+        makeSpinner()
         const response = await fetch(`${apiBaseUrl}api/AdminSignup`, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(getFormData()) // body data type must match "Content-Type" header
         });
-        if(response.ok)  {
+        if(response.ok || response.status === 201 || response.status === 200){
+            
+            removeSpinner()
             return response.json();
         }
 
         throw "Error in fetch"
     } catch(ex) {
-        toastnotification("Error", "An error occurred");
-        console.error(ex);
+        toastnotification("Error", ex.message);
+        
+        removeSpinner()
+        // console.error(ex);
     }
 },
 selectgender = (e) => {
@@ -52,7 +56,7 @@ selectgender = (e) => {
         button.querySelector("input[type='radio']").checked = !button.querySelector("input[type='radio']")
         .checked;
     } catch(ex) {
-            toastnotification("Error", "An error occurred");
+            toastnotification("Error", ex.message);
         console.error(ex);
     }
 };
@@ -70,14 +74,14 @@ submitHandler: async (form, event) => {
     try{
         let re = await adminsignup();
         if(await re.token) {
-            await toastnotification("Success!!", "Admin registered successfully click <a href='../login.html'>here</a> to login");
+            await toastnotification("Success", "Admin registered successfully click <a href='../login.html'>here</a> to login");
         }
         else{
             await toastnotification("Error", "Vendor not registered");
         }
     } catch(ex) {
 
-        toastnotification("Error", "Error in signing up");
+        toastnotification("Error", ex.message);
     }
     return false;
 }

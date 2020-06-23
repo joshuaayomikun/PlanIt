@@ -1,20 +1,41 @@
 
-const userstring = window.localStorage.getItem("user"),
-user = typeof userstring !== 'undefined' ? JSON.parse(userstring): "",
-menulist = [{
+const menulist = [{
     menuname: "Dashboard",
     menulink: "admin/index.html"
 },{
     menuname: "Customers",
-    menulink: "admin/user.html"
+    menulink: "admin/allcustomers.html"
 },{
-    menuname: "admin/Reports",
-    menulink: "",
+    menuname: "Bookings",
+    menulink: "admin/allbookings.html",
+},{
+    menuname: "Services",
+    menulink: "admin/allservices.html",
 },{
     menuname: "Vendors",
     menulink: "admin/listofvendors.html",
-}];
-debugger
+}],
+getVendors = async () => {
+    try {
+        
+        makeSpinner()
+        const response = await fetch(`${apiBaseUrl}api/vendors/getAllVendors`);
+
+        if (response.ok || response.status === 200 || response.status === 201) {
+            
+            removeSpinner()
+            return response.json();
+        }
+
+        throw "error in fetching"
+    } catch (ex) {
+        toastnotification("error", ex.message);
+        
+        removeSpinner()
+    }
+
+}
+// debugger
 if(user) {
     user.role.toLowerCase() !== "admin"? (function(){
         alert("You don't have access to this page!!");

@@ -1,17 +1,34 @@
+
+const userstring = window.localStorage.getItem("user");
+const user = typeof userstring !== 'undefined' ? JSON.parse(userstring): "";
 const toastnotification = (heading, message) => {
     if(document.body.querySelector('.toast'))
     document.body.removeChild(document.body.querySelector('.toast'));
     const div = document.createElement("div"),
-        toast = document.createElement("div"),
-        toastheader = document.createElement("div"),
+        toast = div.cloneNode(),
+        toastheader = div.cloneNode(),
         strong = document.createElement("strong"),
         button = document.createElement("button"),
         span = document.createElement("span"),
-        toastbody = document.createElement("div");
+        toastbody =div.cloneNode();
     div.setAttribute("style", "position: relative; min-height: 200px;");
     div.setAttribute("aria-live", "polite");
     div.setAttribute("aria-atomic", "true");
-    toast.classList.add("toast");
+    toast.classList.add("toast", "shadow", "text-white");
+    switch(heading.toLowerCase()) {
+        case "error":
+            toast.classList.add("bg-danger");
+            break;
+        case "success":
+            toast.classList.add("bg-success");
+            break;
+        case "warning":
+            toast.classList.add("bg-warning");
+            break;
+        case "info":
+            toast.classList.add("bg-info");
+            break;
+    }
     toast.setAttribute("data-autohide", "false");
     toastheader.classList.add("toast-header");
     strong.classList.add("mr-auto");
@@ -23,7 +40,7 @@ const toastnotification = (heading, message) => {
     span.setAttribute("aria-hidden", "true");
     toastbody.classList.add("toast-body");
     span.textContent = "x";
-    strong.textContent = heading;
+    strong.textContent = heading+"!";
     toastbody.innerHTML = message;
     button.appendChild(span)
     toastheader.appendChild(strong)
@@ -47,19 +64,21 @@ const toastnotification = (heading, message) => {
     //     </div>
     //     </div>
 },
-getUserInfo = async () => {
+getUserInfo = async (userId) => {
     try{
-        const userstring = window.localStorage.getItem("user");
-        const user = typeof userstring !== 'undefined' ? JSON.parse(userstring): "";
+        
+        makeSpinner()
         if (await user) {
-            const response = await fetch(`${apiBaseUrl}api/getMyInfo/${user.userId}`, {
+            const response = await fetch(`${apiBaseUrl}api/getMyInfo/${userId}`, {
                 method: 'GET', // *GET, POST, PUT, DELETE, etc.
                 headers: { 'Content-Type': 'application/json',  'x-access-token' : await user.token}// body data type must match "Content-Type" header
             });
             // debugger
             const status = await response.status;
             // debugger
-            if(status === 200) {
+            if(response.ok || response.status === 201 || response.status === 200){
+                
+                removeSpinner()
                 return response.json();
             }
             else if(status === 403){
@@ -68,9 +87,13 @@ getUserInfo = async () => {
                 throw "an error occurred";
             }
         }
+        
+        removeSpinner()
         return "";
     } catch(ex) {
-        debugger
+        
+        removeSpinner()
+        // debugger
         signout();
         window.location.href = "../login.html"
     }
@@ -121,6 +144,39 @@ shuffle = (a) => {
         [a[i], a[j]] = [a[j], a[i]];
     }
     return a;
-}
+},
+makeSpinner = () => {
+    const spinneroverlay = document.createElement('div'),
+    spinnergrow = spinneroverlay.cloneNode(),
+    readonly = document.createElement("span");
+
+    readonly.classList.add("sr-only");
+    readonly.textContent = "Loading...";
+    spinnergrow.classList.add("position-fixed", "spinner-grow", "text-primary", "page-spinner");
+    spinnergrow.setAttribute("role", "status");
+    spinnergrow.setAttribute("style", `z-index: 10000;
+    left: 50%;
+    top: 50%;`);
+    spinneroverlay.classList.add("spinner-overlay");
+    spinneroverlay.setAttribute("style", `
+    position:fixed;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    z-index: 200000;
+    top: 0;
+    background: #0000004f;`)
+
+    spinnergrow.appendChild(readonly);
+    document.body.appendChild(spinnergrow);
+    document.body.appendChild(spinneroverlay);
+},
+removeSpinner = () => {
+    const spinneroverlay = document.querySelector(".spinner-overlay");
+    const pagespinner = document.querySelector(".page-spinner");
+
+    document.body.removeChild(spinneroverlay)
+    document.body.removeChild(pagespinner)
+},
 clientBaseUrl = getRootUrl() ==="http://127.0.0.1:5501/"? getRootUrl() : getRootUrl()+'PlanIt/',
 apiBaseUrl = clientBaseUrl ==="http://127.0.0.1:5501/" ? "http://localhost:3000/":"https://fathomless-springs-44788.herokuapp.com/";
