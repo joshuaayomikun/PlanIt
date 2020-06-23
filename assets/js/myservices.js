@@ -12,7 +12,7 @@ const table = document.querySelector('.my-servcies-table'),
                     } // body data type must match "Content-Type" header
                 });
                 // debugger
-                if (response.ok || response.status === 201 || reponse.status === 200) {
+                if (response.status === 201 || reponse.status === 200) {
                     
                     removeSpinner()
                     return response.json();
@@ -93,7 +93,7 @@ const table = document.querySelector('.my-servcies-table'),
                             'x-access-token': await user.token
                         }
                     });
-                    if (response.ok || response.status === 201) {
+                    if (response.status === 201) {
                         
                     removeSpinner()
                         return response.json()
@@ -121,7 +121,7 @@ const table = document.querySelector('.my-servcies-table'),
                             'x-access-token': await user.token
                         }
                     });
-                    if (response.ok || response.status === 201) {
+                    if (response.status === 201) {
                         
                     removeSpinner()
                         return response.json()

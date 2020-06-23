@@ -1,1 +1,1 @@
-consumeservices("makeup artist");
+consumeservices("Makeup Artist");

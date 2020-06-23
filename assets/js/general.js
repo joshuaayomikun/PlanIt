@@ -1,7 +1,8 @@
 
-const userstring = window.localStorage.getItem("user");
-const user = typeof userstring !== 'undefined' ? JSON.parse(userstring): "";
-const toastnotification = (heading, message) => {
+const userstring = window.localStorage.getItem("user"),
+user = typeof userstring !== 'undefined' ? JSON.parse(userstring): "",
+redirecturl = window.location.href,
+toastnotification = (heading, message) => {
     if(document.body.querySelector('.toast'))
     document.body.removeChild(document.body.querySelector('.toast'));
     const div = document.createElement("div"),
@@ -76,7 +77,7 @@ getUserInfo = async (userId) => {
             // debugger
             const status = await response.status;
             // debugger
-            if(response.ok || response.status === 201 || response.status === 200){
+            if(response.status === 201 || response.status === 200){
                 
                 removeSpinner()
                 return response.json();
@@ -156,7 +157,11 @@ makeSpinner = () => {
     spinnergrow.setAttribute("role", "status");
     spinnergrow.setAttribute("style", `z-index: 10000;
     left: 50%;
-    top: 50%;`);
+    top: 50%;
+    
+    height: 77px;
+    width: 77px;
+`);
     spinneroverlay.classList.add("spinner-overlay");
     spinneroverlay.setAttribute("style", `
     position:fixed;
@@ -180,3 +185,7 @@ removeSpinner = () => {
 },
 clientBaseUrl = getRootUrl() ==="http://127.0.0.1:5501/"? getRootUrl() : getRootUrl()+'PlanIt/',
 apiBaseUrl = clientBaseUrl ==="http://127.0.0.1:5501/" ? "http://localhost:3000/":"https://fathomless-springs-44788.herokuapp.com/";
+
+setTimeout(function() {
+    feather.replace()
+},1)

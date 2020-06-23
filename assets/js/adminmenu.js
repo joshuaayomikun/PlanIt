@@ -21,7 +21,7 @@ getVendors = async () => {
         makeSpinner()
         const response = await fetch(`${apiBaseUrl}api/vendors/getAllVendors`);
 
-        if (response.ok || response.status === 200 || response.status === 201) {
+        if (response.status === 200 || response.status === 201) {
             
             removeSpinner()
             return response.json();

@@ -5,14 +5,18 @@ const serviceid = getUrlVars()['serviceid'],
     image = document.querySelector(".checkout-image"),
     price = document.querySelector(".price"),
     booknow = document.querySelector(".book-now"),
-    addToCart = document.querySelector("add-to-card"),
+    addToCart = document.querySelector(".add-to-cart"),
     viewservice = async () => {
         try {
+            makeSpinner();
             const response = fetch(`${apiBaseUrl}api/vendors/getSingleService/${serviceid}`);
-            if ((await response).ok || (await response).status === 200)
+            if ((await response).ok || (await response).status === 200){
+                removeSpinner()
                 return (await response).json()
-            throw "Error in fetching service"
+            }
+            throw Error
         } catch (ex) {
+            removeSpinner()
             toastnotification("error", ex.message);
         }
     },
@@ -24,18 +28,28 @@ const serviceid = getUrlVars()['serviceid'],
         } = response;
 
         title.textContent = service.title;
+        title.id = service._id;
         description.innerHTML = decodeURIComponent(service.description);
         image.src = service.imageUrl;
         price.appendChild(document.createTextNode(new Intl.NumberFormat(undefined, { style: 'currency', currency: 'NGN' }).format(service.price)))
         servicespan.appendChild(document.createTextNode(service.serviceType));
-        booknow.href = `payment.html?serviceid=${service._id}`
-    },
-    populateCart = (e) => {
-        e.preventDefault();
-        if(typeof user === "undefined")
-            alert("You need to sign in")
+        // booknow.href = `payment.html?serviceid=${service._id}`
+    };
 
-    }
+    addToCart.addEventListener("click", async e=>{
+        try{
+            const data = await populateCart(e, {serviceId:title.id, userId:user.userId,});
+            const cartcount = document.querySelector('.cart-count');
+            if(typeof data !== "undefined"){
+                if(typeof data.count !== "undefined")
+                cartcount.textContent = data.count
+                return
+            }
+        } catch(ex) {
+            toastnotification("error", ex);
+        }
+
+    });
 
 if (typeof serviceid !== "undefined") {
     populatePage();

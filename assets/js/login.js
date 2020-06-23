@@ -43,7 +43,7 @@ const UserLogin = async () => {
         },
         body: JSON.stringify(await getFormData()) // body data type must match "Content-Type" header
     });
-    if(response.ok || response.status === 201 || response.status === 200){
+    if(response.status === 201 || response.status === 200){
         
         removeSpinner()
     return response.json();

@@ -1,1 +1,1 @@
-consumeservices("caterer")
+consumeservices("Caterer")

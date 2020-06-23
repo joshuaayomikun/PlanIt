@@ -65,16 +65,16 @@ if(user !== null) {
   });
 }
 else{
+  alert("you're session has timmed out or you're not signed in")
   signout();
 }
 }
 else{
+  alert("you're session has timmed out or you're not signed in")
   signout();
 }
 main.classList.add("col-md-9","ml-sm-auto","col-lg-10","px-md-4")
-setTimeout(function() {
-  feather.replace()
-},1)
+
 
 /*
   

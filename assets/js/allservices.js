@@ -4,14 +4,14 @@ const table = document.querySelector('.my-servcies-table'),
             try {
                 
                 makeSpinner()
-                const response = await fetch(`${apiBaseUrl}api/vendors/adminGetSAllervice`, {
+                const response = await fetch(`${apiBaseUrl}api/vendors/adminGetAllService`, {
                     method: 'GET', // *GET, POST, PUT, DELETE, etc.
                     headers: {
                         'Content-Type': 'application/json'
                     } // body data type must match "Content-Type" header
                 });
                 // debugger
-                if(response.ok || response.status === 201 || response.status === 200){
+                if(response.status === 201 || response.status === 200){
                     
                     removeSpinner()
                     return response.json();
@@ -111,7 +111,7 @@ const table = document.querySelector('.my-servcies-table'),
                             'x-access-token': await user.token
                         }
                     });
-                    if(response.ok || response.status === 201 || response.status === 200){
+                    if(response.status === 201 || response.status === 200){
                         
                     removeSpinner()
                         return response.json()
@@ -139,7 +139,7 @@ const table = document.querySelector('.my-servcies-table'),
                             'x-access-token': await user.token
                         }
                     });
-                    if(response.ok || response.status === 201 || response.status === 200){
+                    if(response.status === 201 || response.status === 200){
                         
                     removeSpinner()
                         return response.json()
