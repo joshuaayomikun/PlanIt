@@ -13,26 +13,34 @@
 </head>
 
 <body>
-    <div class="container">
-        <h3 class="title text-center"></h3>
-        <article class="row single-post mt-5 no-gutters">
-            <div class="">
-                <div class="image-wrapper float-left pr-3">
-                    <img src="" class="checkout-image" alt="">
-                </div>
-                <div class="single-post-content-wrapper p-3">
-                    <p class="description"></p>
-                    <br>
-                    <div class="d-flex">
-                        <span class="price text-left mr-auto"><b>Price:</b>&nbsp;&nbsp;</span>
-                        <span class="service text-right ml-auto"><b>Service type:</b>&nbsp;&nbsp;</span>
-                    </div>
-                    <div class="d-flex justify-content-center ">
-                        <button type="submit" class="btn btn-primary">Book Now</button>
-                    </div>
-                </div>
+    <div class="container h-100">
+        <div class="card shadow">
+            <div class="card-header">
+                
+                <h3 class="title text-center text-dark"></h3>
             </div>
-        </article>
+            <div class="card-body">
+                <article class="row single-post m-5 no-gutters border">
+                    <div class="w-100">
+                        <div class="image-wrapper float-left pr-3">
+                            <img src="" class="checkout-image p-5" alt="">
+                        </div>
+                        <div class="single-post-content-wrapper p-3">
+                            <p class="description"></p>
+                            <br>
+                            <div class="d-flex">
+                                <span class="price text-left mr-auto"><b>Price:</b>&nbsp;&nbsp;</span>
+                                <span class="service text-right ml-auto"><b>Service type:</b>&nbsp;&nbsp;</span>
+                            </div>
+                            <div class="d-flex justify-content-center ">
+                                <a class="btn btn-secondary add-to-cart mx-2 text-white">Add to Cart</a>
+                                <a class="btn btn-primary book-now mx-2">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">

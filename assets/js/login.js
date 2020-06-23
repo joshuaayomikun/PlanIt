@@ -33,6 +33,9 @@ const getFormData = async () => {
 };
 
 const UserLogin = async () => {
+    try{
+        
+        makeSpinner()
     const response = await fetch(`${apiBaseUrl}api/login`, {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         headers: {
@@ -40,7 +43,17 @@ const UserLogin = async () => {
         },
         body: JSON.stringify(await getFormData()) // body data type must match "Content-Type" header
     });
+    if(response.ok || response.status === 201 || response.status === 200){
+        
+        removeSpinner()
     return response.json();
+    }
+    throw "An error occurred"
+    }catch(ex){
+        
+        makeSpinner()
+        toastnotification("error", ex.message)
+    }
 };
 const saveuserinfo = async (user) =>  window.localStorage.setItem("user", JSON.stringify(user));
 

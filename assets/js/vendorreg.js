@@ -36,13 +36,25 @@ $(document).ready(function () {
             }
         },
         vendorsignup = async () => {
+            try{
+                
+                makeSpinner()
             const response = await fetch(`${apiBaseUrl}api/vendorSignup`, {
                 method: 'POST', // *GET, POST, PUT, DELETE, etc.
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(await getFormData()) // body data type must match "Content-Type" header
             });
-
-            return response.json();
+            if(response.ok || response.status === 201 || response.status === 200){
+                
+                removeSpinner()
+                return response.json();
+            }
+            throw "An error Occurred"
+            } catch(ex) {
+                toastnotification("error", ex.message)
+                
+                removeSpinner()
+            }
         },
         selectservice = (e) => {
             e.preventDefault();
@@ -66,7 +78,7 @@ $(document).ready(function () {
                 button.querySelector("input[type='radio']").checked = !button.querySelector("input[type='radio']")
                 .checked;
             } catch(ex) {
-                    toastnotification("Error", ex.message);
+                toastnotification("Error", ex.message);
                 console.error(ex);
             }
         };
@@ -78,7 +90,7 @@ $(document).ready(function () {
             try{
                 let re = await vendorsignup();
                 if(await re.token) {
-                    await toastnotification("Success!!", "Vendor registered successfully click <a href='login.html'>here</a> to login");
+                    await toastnotification("Success", "Vendor registered successfully click <a href='login.html'>here</a> to login");
                 }
                 else{
                     await toastnotification("Error", "Vendor not registered");
