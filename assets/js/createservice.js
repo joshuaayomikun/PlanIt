@@ -56,7 +56,7 @@ $(document).ready(function () {
                     body: JSON.stringify(getFormData()), // body data type must match "Content-Type" header
                     user: JSON.stringify({id: user.id})
                 });
-                if(response.ok || response.status === 201 || response.status === 200){
+                if(response.status === 201 || response.status === 200){
                     
                     removeSpinner()
                     return response.json()
@@ -80,7 +80,7 @@ $(document).ready(function () {
                     body: JSON.stringify(getFormData()), // body data type must match "Content-Type" header
                     user: JSON.stringify({id: user.id})
                 });
-                if(response.ok || response.status === 201 || response.status === 200){
+                if(response.status === 201 || response.status === 200){
                     
                 
                     removeSpinner()
@@ -118,7 +118,7 @@ $(document).ready(function () {
                 
                 makeSpinner()
                 const response = await fetch(`${apiBaseUrl}api/vendors/getSingleService/${serviceid}`);
-                if(response.ok || response.status === 201 || response.status === 200){
+                if(response.status === 201 || response.status === 200){
                     
                     removeSpinner()
                     return response.json();

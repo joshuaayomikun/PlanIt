@@ -19,7 +19,7 @@ $('.owl-carousel').owlCarousel({
       }
     }
   });
-  getAllServices().then(data => {
+  getAllServices("getSixAllDiscountServices").then(data => {
       console.log(data);
     const productlist = document.querySelector(".product-list");
     let services = data.services;

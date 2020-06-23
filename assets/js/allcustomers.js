@@ -7,7 +7,7 @@ const customerstable = document.querySelector(".vendor-table"),
             const response = await fetch(`${apiBaseUrl}api/getAllUsers`, {
                 headers: { 'Content-Type': 'application/json',  'x-access-token' : user.token }
             });
-            if(response.ok || response.status === 201 || response.status === 200){
+            if(response.status === 201 || response.status === 200){
                 
                 removeSpinner()
                 return response.json();

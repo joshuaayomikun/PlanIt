@@ -77,7 +77,7 @@ getUserInfo = async (userId) => {
             // debugger
             const status = await response.status;
             // debugger
-            if(response.ok || response.status === 201 || response.status === 200){
+            if(response.status === 201 || response.status === 200){
                 
                 removeSpinner()
                 return response.json();
@@ -157,7 +157,11 @@ makeSpinner = () => {
     spinnergrow.setAttribute("role", "status");
     spinnergrow.setAttribute("style", `z-index: 10000;
     left: 50%;
-    top: 50%;`);
+    top: 50%;
+    
+    height: 77px;
+    width: 77px;
+`);
     spinneroverlay.classList.add("spinner-overlay");
     spinneroverlay.setAttribute("style", `
     position:fixed;

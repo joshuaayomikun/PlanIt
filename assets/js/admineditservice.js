@@ -55,7 +55,7 @@ $(document).ready(function () {
                     body: JSON.stringify(getFormData()), // body data type must match "Content-Type" header
                     user: JSON.stringify({id: user.id})
                 });
-                if(response.ok || response.status === 201) {
+                if(response.status === 201) {
                     removeSpinner()
                     return response.json()
                 }

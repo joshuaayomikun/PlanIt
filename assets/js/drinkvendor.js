@@ -1,1 +1,1 @@
-consumeservices("drink vendor")
+consumeservices("Drink Vendor")
