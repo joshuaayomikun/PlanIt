@@ -1,1 +1,1 @@
-consumeservices("Event Hall")
+consumeServices("Event Hall")

@@ -41,10 +41,10 @@ const menulist = [{
       return navitem;
 
   },
-  navbartoggler = async ()=>{
+  navbartoggler = ()=>{
     
-    const button = await document.createElement("button");
-    const span = await document.createElement("span");
+    const button = document.createElement("button");
+    const span =  document.createElement("span");
 
     span.classList.add("navbar-toggler-icon");
     button.type = "button";
@@ -78,14 +78,14 @@ menulist.forEach((menu,index, array) => {
     
 });
 
-navbartoggler().then(togglebar=>{
+const togglebar = navbartoggler()
   collaspediv.appendChild(ul);
   containerdiv.appendChild(collaspediv);
   containerdiv.insertBefore(togglebar, containerdiv.firstElementChild);
   containerdiv.insertBefore(navbarbrand, containerdiv.firstElementChild);
   nav.appendChild(containerdiv);
   document.body.insertBefore(nav, document.body.firstElementChild);
-})
+
 
 /* <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height: 76px;">
     <div class="container-fluid px-md-5">

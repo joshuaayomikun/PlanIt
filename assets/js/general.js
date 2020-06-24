@@ -1,6 +1,6 @@
 
 const userstring = window.localStorage.getItem("user"),
-user = typeof userstring !== 'undefined' ? JSON.parse(userstring): "",
+user = userstring !== null ? JSON.parse(userstring): "",
 redirecturl = window.location.href,
 toastnotification = (heading, message) => {
     if(document.body.querySelector('.toast'))
@@ -18,22 +18,34 @@ toastnotification = (heading, message) => {
     toast.classList.add("toast", "shadow", "text-white");
     switch(heading.toLowerCase()) {
         case "error":
+            toast.classList.remove("bg-info");
+            toast.classList.remove("bg-warning");
+            toast.classList.remove("bg-success");
             toast.classList.add("bg-danger");
             break;
         case "success":
+            toast.classList.remove("bg-info");
+            toast.classList.remove("bg-warning");
             toast.classList.add("bg-success");
+            toast.classList.remove("bg-danger");
             break;
         case "warning":
+            toast.classList.remove("bg-info");
             toast.classList.add("bg-warning");
+            toast.classList.remove("bg-success");
+            toast.classList.remove("bg-danger");
             break;
         case "info":
             toast.classList.add("bg-info");
+            toast.classList.remove("bg-warning");
+            toast.classList.remove("bg-success");
+            toast.classList.remove("bg-danger");
             break;
     }
     toast.setAttribute("data-autohide", "false");
     toastheader.classList.add("toast-header");
     strong.classList.add("mr-auto");
-    toast.setAttribute("style", "position: fixed; top: 0; right: 0; z-index:1000000");
+    toast.setAttribute("style", "position: fixed; top: 75px; right: 75px; z-index:1000000");
     button.type = "button";
     button.classList.add("ml-2", "mb-1", "close");
     button.setAttribute("data-dismiss", "toast");
@@ -96,7 +108,7 @@ getUserInfo = async (userId) => {
         removeSpinner()
         // debugger
         signout();
-        window.location.href = "../login.html"
+        window.location.href = clientBaseUrl+"login.html";
     }
 
 },

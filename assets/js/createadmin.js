@@ -74,10 +74,10 @@ submitHandler: async (form, event) => {
     try{
         let re = await adminsignup();
         if(await re.token) {
-            await toastnotification("Success", "Admin registered successfully click <a href='../login.html'>here</a> to login");
+            toastnotification("Success", "Admin registered successfully click <a href='../login.html'>here</a> to login");
         }
         else{
-            await toastnotification("Error", "Vendor not registered");
+            toastnotification("Error", "Vendor not registered");
         }
     } catch(ex) {
 

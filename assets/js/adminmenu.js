@@ -14,6 +14,9 @@ const menulist = [{
 },{
     menuname: "Vendors",
     menulink: "admin/listofvendors.html",
+},{
+    menuname: "Create Admin",
+    menulink: "admin/createadmin.html",
 }],
 getVendors = async () => {
     try {
