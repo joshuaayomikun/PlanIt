@@ -12,17 +12,24 @@ const login = document.querySelector('.login'),
 
             const licart = document.createElement("li"),
                 cartspan = document.createElement("span"),
-                badgespan = cartspan.cloneNode();
+                badgespan = cartspan.cloneNode(),
+                cartlink = document.createElement("a");
             badgespan.classList.add("badge", "badge-danger", "cart-count", "m-auto");
             const data = await getCartCount();
             badgespan.textContent = 0;
-            if (typeof data.count !== "undefined")
+            if (typeof data.count !== "undefined"){
                 badgespan.textContent = data.count;
+                if(data.count>0) {
+                    cartlink.href = `payment.html`;
+                }
+            }
             licart.classList.add("nav-item", "text-white", "d-flex");
             cartspan.setAttribute("data-feather", "shopping-cart");
             cartspan.classList.add("m-auto");
-            licart.appendChild(cartspan)
-            licart.appendChild(badgespan)
+            cartlink.classList.add("m-auto", "nav-link");
+            cartlink.appendChild(cartspan)
+            cartlink.appendChild(badgespan)
+            licart.appendChild(cartlink)
             setTimeout(() => feather.replace(), 1);
 
             return licart;
@@ -30,8 +37,8 @@ const login = document.querySelector('.login'),
         },
         getCartCount = async () => {
                 try {
-                    if (typeof user !== "undefined" || user !== null) {
-                        if (user !== "") {
+                    if (user !== null) {
+                        if (typeof user.userId !== "") {
                             makeSpinner()
                             const response = await fetch(`${apiBaseUrl}api/getCartCountByUserId/${user.userId}`)
                             if (response.status === 200 || response.status === 201) {
@@ -139,20 +146,11 @@ const login = document.querySelector('.login'),
 
                     return productcard;
                 },
-                consumeservices = (serviceType) => {
+                consumeServices = (serviceType) => {
                     getAllServices(`getSixServicesByServiceType/${serviceType}`).then(data => {
                         console.log(data);
                         const productlist = document.querySelector(".product-list");
-                        let services = data.services;
-                        const sixdiscount = shuffle(services).filter(val => {
-                                if (val.serviceType) {
-                                    return val.serviceType.toLowerCase().trim() === serviceType;
-                                } else {
-                                    return false;
-                                }
-                            })
-                            .filter((val, index) => index < 6);
-                        shuffle(sixdiscount).forEach(product => productlist.appendChild(makeserviceproductcard(product)));
+                       shuffle(data.services).forEach(product => productlist.appendChild(makeserviceproductcard(product)));
 
                     })
                 },
