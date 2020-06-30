@@ -1,6 +1,5 @@
 const userstring = window.localStorage.getItem("user"),
     user = userstring !== null ? JSON.parse(userstring) : "",
-    worker = new Worker(`${clientBaseUrl}assets/js/loggedinwebworker.js`),
     toastnotification = (heading, message) => {
         if (document.body.querySelector('.toast'))
             document.body.removeChild(document.body.querySelector('.toast'));
@@ -194,7 +193,8 @@ const userstring = window.localStorage.getItem("user"),
         },
         clientBaseUrl = getRootUrl() === "http://127.0.0.1:5501/" ? getRootUrl() : getRootUrl() + 'PlanIt/',
         apiBaseUrl = clientBaseUrl === "http://127.0.0.1:5501/" ? "http://localhost:3000/" : "https://fathomless-springs-44788.herokuapp.com/",
-        saveuserInfo = (user) => window.localStorage.setItem("user", JSON.stringify(user));
+        saveuserInfo = (user) => window.localStorage.setItem("user", JSON.stringify(user)),
+        worker = new Worker(`${clientBaseUrl}assets/js/loggedinwebworker.js`);
 if (user !== "") {
     let userstringa = window.localStorage.getItem("user"),
         usera = userstringa !== null ? JSON.parse(userstringa) : ""
