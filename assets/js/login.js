@@ -27,8 +27,7 @@ const loginform = document.querySelector(".login"),
                 removeSpinner()
                 toastnotification("error", ex.message)
             }
-        },
-        saveuserInfo = (user) => window.localStorage.setItem("user", JSON.stringify(user));
+        };
 
 $(loginform).validate({
     submitHandler: async (form, event) => {
@@ -36,22 +35,14 @@ $(loginform).validate({
             event.preventDefault();
             const userl = await userLogin();
             if (typeof userl !== "undefined") {
+                // debugger
                 saveuserInfo(userl);
                 if (typeof redirecturl !== "undefined") {
                     if (redirecturl !== "") {
                         window.location.href = redirecturl;
                     }
                 }
-                switch (userl.role.toLowerCase()) {
-                    case "vendor":
-                        window.location.href = "vendor/index.html";
-                        break;
-                    case "admin":
-                        window.location.href = "admin/index.html"
-                        break;
-                    default:
-                        window.location.href = "index.html"
-                }
+               window.location.href = switchDashboard(userl.role)
                 return;
             }
             throw Error;

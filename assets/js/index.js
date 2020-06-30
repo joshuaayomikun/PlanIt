@@ -25,7 +25,12 @@ $('.owl-carousel').owlCarousel({
     let services = data.services;
     const sixdiscount = shuffle(services).filter(val => val.discount !== "" )
                             .filter((val, index) => index < 6);
-    shuffle(sixdiscount).forEach(product => productlist.appendChild(makeproductcard(product)));  
+    shuffle(sixdiscount).forEach(product => productlist.appendChild(makeproductcard(product)));
+    const productcards = document.querySelectorAll(".product");
+    productcards.forEach(productcard => {
+      const serviceid = getUrlVars(productcard.querySelector('.card-link').href)['serviceid'];
+      getServicePictureById(serviceid).then(picture =>makeProductImageCard(productcard, picture.service.imageUrl));
+    });
 
   })
     

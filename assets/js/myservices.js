@@ -12,7 +12,7 @@ const table = document.querySelector('.my-servcies-table'),
                     } // body data type must match "Content-Type" header
                 });
                 // debugger
-                if (response.status === 201 || reponse.status === 200) {
+                if (response.status === 201 || response.status === 200) {
                     
                     removeSpinner()
                     return response.json();
@@ -27,6 +27,7 @@ const table = document.querySelector('.my-servcies-table'),
 
         },
     populateTable = async () => {
+        debugger
             const myservices = await getMyServices();
             tbody.textContent = "";
             myservices.service.forEach((val, index) => {
@@ -46,15 +47,15 @@ const table = document.querySelector('.my-servcies-table'),
                 activatebutton.classList.add("btn", "btn-success", "m-1");
                 editbutton.classList.add("btn", "btn-primary", "m-1");
                 deactivatebutton.addEventListener("click", async () => {
-                    const reponse = await deactivateService(val._id)
-                    if (reponse) {
+                    const response = await deactivateService(val._id)
+                    if (response) {
                         toastnotification("Success", "Deactivated successfully");
                         await populateTable();
                     }
                 })
                 activatebutton.addEventListener("click", async () => {
-                    const reponse = await activateService(val._id)
-                    if (reponse) {
+                    const response = await activateService(val._id)
+                    if (response) {
                         toastnotification("Success", "Activated successfully");
                         await populateTable();
                     }

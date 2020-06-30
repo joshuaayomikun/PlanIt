@@ -70,16 +70,28 @@ const login = document.querySelector('.login'),
 
                         removeSpinner()
                     }
-                },
+                }
+                getServicePictureById = async (id) => {
+                        try {
+    
+                            const response = await fetch(`${apiBaseUrl}api/vendors/getServicePictureById/${id}`);
+                            if (response.ok)
+                                if (response.status === 201 || response.status === 200) {
+                                    return response.json();
+                                }
+                            throw "Error in fetching"
+                        } catch (ex) {
+                            toastnotification("error", ex.message)
+    
+                        }
+                    },
                 makeproductcard = ({
                     discount,
                     price,
                     title,
-                    imageUrl,
                     _id
                 }) => {
                     const productcard = document.createElement("div"),
-                        productimage = document.createElement("img"),
                         cardbody = productcard.cloneNode(),
                         cardlink = document.createElement("a"),
                         productprice = document.createElement("p"),
@@ -88,23 +100,20 @@ const login = document.querySelector('.login'),
                     productprice.textContent = new Intl.NumberFormat(undefined, {
                         style: 'currency',
                         currency: 'NGN'
-                    }).format(price)
-                    productdiscount.textContent = `LIMITED DEAL: ${discount} off `
+                    }).format(price);
+                    productdiscount.textContent = `LIMITED DEAL: ${discount} off `;
                     cardlink.textContent = title;
-                    productimage.src = imageUrl;
-                    cardlink.href = `viewservice.html?serviceid=${_id}`
+                    cardlink.href = `viewservice.html?serviceid=${_id}`;
 
-                    productcard.classList.add("card", "product")
-                    productimage.classList.add("card-img-top")
-                    cardbody.classList.add("card-body")
-                    cardlink.classList.add("card-link")
-                    productprice.classList.add("card-text")
-                    productdiscount.classList.add("card-text")
+                    productcard.classList.add("card", "product", "shadow");
+                    cardbody.classList.add("card-body");
+                    cardlink.classList.add("card-link");
+                    productprice.classList.add("card-text");
+                    productdiscount.classList.add("card-text");
 
                     cardbody.appendChild(cardlink);
                     cardbody.appendChild(productprice);
                     cardbody.appendChild(productdiscount);
-                    productcard.appendChild(productimage);
                     productcard.appendChild(cardbody);
 
 
@@ -114,33 +123,27 @@ const login = document.querySelector('.login'),
                     address,
                     state,
                     title,
-                    imageUrl,
                     _id
                 }) => {
                     const productcard = document.createElement("div"),
-                        productimage = document.createElement("img"),
                         cardbody = productcard.cloneNode(),
                         cardlink = document.createElement("a"),
                         productlocation = document.createElement("p"),
                         viewprofile = cardlink.cloneNode();
-
                     productlocation.textContent = `${address} ${state}`
                     viewprofile.textContent = "View profile"
                     cardlink.textContent = title;
-                    productimage.src = imageUrl;
-                    cardlink.href = `viewservice.html?serviceid=${_id}`
+                    cardlink.href = `viewservice.html?serviceid=${_id}`;
 
-                    productcard.classList.add("card", "product")
-                    productimage.classList.add("card-img-top")
-                    cardbody.classList.add("card-body")
-                    cardlink.classList.add("card-link")
-                    productlocation.classList.add("card-text")
-                    viewprofile.classList.add("btn", "btn-primary")
+                    productcard.classList.add("card", "product", "shadow");
+                    cardbody.classList.add("card-body");
+                    cardlink.classList.add("card-link");
+                    productlocation.classList.add("card-text");
+                    viewprofile.classList.add("btn", "btn-primary");
 
                     cardbody.appendChild(cardlink);
                     cardbody.appendChild(productlocation);
                     cardbody.appendChild(viewprofile);
-                    productcard.appendChild(productimage);
                     productcard.appendChild(cardbody);
 
 
@@ -151,6 +154,12 @@ const login = document.querySelector('.login'),
                         console.log(data);
                         const productlist = document.querySelector(".product-list");
                        shuffle(data.services).forEach(product => productlist.appendChild(makeserviceproductcard(product)));
+
+                       const productcards = document.querySelectorAll(".product");
+                    productcards.forEach(productcard => {
+                      const serviceid = getUrlVars(productcard.querySelector('.card-link').href)['serviceid'];
+                      getServicePictureById(serviceid).then(picture =>makeProductImageCard(productcard, picture.service.imageUrl));
+                    });
 
                     })
                 },
@@ -172,7 +181,7 @@ const login = document.querySelector('.login'),
                             },
                             body: JSON.stringify(ServiceCredendtials) // body data type must match "Content-Type" header
                         });
-                        debugger
+                        // debugger
                         if (response.status === 200 || response.status === 201) {
                             removeSpinner();
                             return response.json();
@@ -185,6 +194,13 @@ const login = document.querySelector('.login'),
                         toastnotification("error", ex)
                         removeSpinner()
                     }
+                },
+                makeProductImageCard = (productcard, imageUrl) => {
+                    // debugger;
+                    const productimage = document.createElement("img");
+                    productimage.src = imageUrl;
+                    productimage.classList.add("card-img-top");
+                    productcard.insertBefore(productimage, productcard.firstElementChild);
                 };
 dropdownmenu.classList.add("dropdown-menu")
 logout.classList.add("dropdown-item");
@@ -222,7 +238,7 @@ if (user !== null) {
                 name.textContent = data.user.name;
                 profileimg.src = data.user.gender === "male" ? "assets/img/undraw_male_avatar_323b.svg" : "assets/img/undraw_female_avatar_w3jk.svg"
                 logout.addEventListener("click", signout);
-                mydashboard.addEventListener("click", gotomydashboard)
+                mydashboard.addEventListener("click", gotoMyDashboard)
             }
         }).catch(ex => {
             toastnotification("Error", ex.message)

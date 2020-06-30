@@ -37,6 +37,31 @@ getVendors = async () => {
         removeSpinner()
     }
 
+},
+signinAsAnyUser = async (body) => {
+    try {
+        // debugger
+        if(user !== ""){
+            makeSpinner();
+            const response =  await fetch(`${apiBaseUrl}api/signinAsAnyUser`, {
+                method:"POST",
+                headers:  {'Content-Type': 'application/json',  'x-access-token' : user.token },
+                body: JSON.stringify(body)
+            });
+
+            if (response.status === 200 || response.status === 201) {
+                removeSpinner();
+                return response.json()
+            }
+                throw "An error occurred"
+        } else {
+            toastnotification("error", "You are not logged in");
+        }
+
+    } catch(ex) {
+        removeSpinner();
+        toastnotification("error", ex);
+    }
 }
 // debugger
 if(user) {
