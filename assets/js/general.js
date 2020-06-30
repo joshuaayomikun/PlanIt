@@ -1,6 +1,6 @@
 const userstring = window.localStorage.getItem("user"),
     user = userstring !== null ? JSON.parse(userstring) : "",
-    worker = new Worker('../assets/js/loggedinwebworker.js'),
+    worker = new Worker(`${clientBaseUrl}assets/js/loggedinwebworker.js`),
     toastnotification = (heading, message) => {
         if (document.body.querySelector('.toast'))
             document.body.removeChild(document.body.querySelector('.toast'));
