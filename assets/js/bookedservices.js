@@ -73,7 +73,7 @@ const bookingstable = document.querySelector(".bookings-table"),
                         tr.appendChild(tdDateNeeded)
                         tr.appendChild(tdBookingDate)
                         tr.appendChild(tdAccepted)
-                        tr.appendChild(accept)
+                        booking.accepted?"":tr.appendChild(accept)
                         bookingstabletbody.appendChild(tr)
                     })
                 }
