@@ -127,8 +127,8 @@ const cartItems = document.querySelector(".cart-items"),
       },
       boobkspace = async () => {
           //modias
-          const response = await fetch(`${apiBaseUrl}api/bookVendor/${serviceId}`, {
-            method: 'PATCH', // *GET, POST, PUT, DELETE, etc.
+          const response = await fetch(`${apiBaseUrl}api/bookVendor`, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
             headers: {
               'Content-Type': 'application/json',
               'x-access-token': await user.token
@@ -137,17 +137,18 @@ const cartItems = document.querySelector(".cart-items"),
           });
         },
         getFormData = () => {
-          return {
-            name: customername.value,
-            phone: phonenumber.value,
-            email: email.com,
-            address: address.vallue,
-            dateNeeded: dateneeded.value,
-            vendorId: Array.from(document.querySelectorAll(".vendorId")).map(e => e.value).reduce((acc, next) => `${acc},${next}`, ""),
-            id: user.userId,
-            attendanceNo: plannedattendance.value,
-            serviceId: Array.from(document.querySelectorAll(".serviceId")).map(e => e.value).reduce((acc, next) => `${acc},${next}`, "")
-          }
+              return {
+                name: customername.value,
+                phone: phonenumber.value,
+                email: email.value,
+                address: address.value,
+                dateNeeded: dateneeded.value,
+                bookings: Array.from(document.querySelectorAll(".vendorId")).map((e, index) => {
+                  return {serviceId: document.querySelectorAll(".serviceId")[index].value, vendorId: e.value }
+                }),
+                id: typeof user.userId === "undefined"? "": user.userId,
+                attendanceNo: plannedattendance.value,
+              }
         },
         prepopulate = async () => {
           if (user !== null) {
@@ -179,11 +180,22 @@ $(bookingform).validate({
     // await vendorsignup()
     // debugger;
     event.preventDefault();
-    const paystatus = await boobkspace();
     try {
-      getFormData()
-    } catch (ex) {
+      makeSpinner();
+      console.log(getFormData());
+      const paystatus = await boobkspace();
+      if(typeof paystatus !== "undefined"){
+        if(paystatus.bookinfo.length > 0) {
+          toastnotification("success", "you have successfully booked! you'll be contacted soon by the vendor(s)")
+          
+        }
+        removeSpinner()
+        return false;
+      }
 
+      throw Error
+    } catch (ex) {
+      removeSpinner();
       toastnotification("Error", ex.message);
     }
     return false;

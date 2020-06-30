@@ -22,7 +22,7 @@ const customerstable = document.querySelector(".vendor-table"),
         }
 
     },
-    populateTabe = async () => {
+    populateTable = async () => {
         const {users} =  await getAllUsers(),
             customers = users.filter(user => user.role.toLowerCase() === "user");
         customers.forEach((customer, index) => {
@@ -59,5 +59,5 @@ const customerstable = document.querySelector(".vendor-table"),
 
         })
     };
-    populateTabe();
+    populateTable();
     
