@@ -52,11 +52,12 @@ const bookingstable = document.querySelector(".bookings-table"),
                         tdBookingDate.textContent = booking.createdAt;
                         tdAccepted.textContent = booking.accepted;
                         accept.textContent = "Accept Booking"
-
+                        accept.id = booking._id
                         accept.classList.add("btn", "btn-success")
-
+                        
                         accept.addEventListener('click', async (e) =>{
-                            const result = await acceptBooking(booking._id);
+                            e.preventDefault()
+                            const result = await acceptBooking(accept.id);
                             if(typeof result !== "undefined"){
                                 toastnotification("success", result.message)
                                 populateTable();
@@ -84,7 +85,7 @@ const bookingstable = document.querySelector(".bookings-table"),
         acceptBooking = async (bookingId) => {
             try{
                 makeSpinner();
-                const response = await fetch(`${apiBaseUrl}acceptBookingByBookingId/${bookingId}`, {
+                const response = await fetch(`${apiBaseUrl}api/acceptBookingByBookingId/${bookingId}`, {
                     headers: { 'x-access-token': user.token  }
                 });
                 if (response.status === 201 || response.status === 200) {

@@ -20,9 +20,9 @@ const vendortable = document.querySelector('.vendor-table'),
                 deactivate.textContent = "Deactivate";
                 activate.textContent = "Activate";
                 signinasvendor.textContent = "Sign in as user";
-                deactivate.classList.add("btn", "btn-danger", "text-white", "mx-1")
-                signinasvendor.classList.add("btn", "btn-primary", "text-white", "mx-1")
-                activate.classList.add("btn", "btn-success", "text-white", "mx-1")
+                deactivate.classList.add("btn", "btn-danger", "text-white", "m-1")
+                signinasvendor.classList.add("btn", "btn-primary", "text-white", "m-1")
+                activate.classList.add("btn", "btn-success", "text-white", "m-1")
                 tdName.textContent = data.name;
                 tdEmail.textContent = data.email
                 tdCompanyName.textContent = data.companyName;
