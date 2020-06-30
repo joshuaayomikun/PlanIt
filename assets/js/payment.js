@@ -125,30 +125,42 @@ const cartItems = document.querySelector(".cart-items"),
         }
 
       },
+      getFormData = () => {
+            return {
+              name: customername.value,
+              phone: phonenumber.value,
+              email: email.value,
+              address: address.value,
+              dateNeeded: dateneeded.value,
+              bookings: Array.from(document.querySelectorAll(".vendorId")).map((e, index) => {
+                return {serviceId: document.querySelectorAll(".serviceId")[index].value, vendorId: e.value }
+              }),
+              userId: typeof user.userId === "undefined"? "": user.userId,
+              attendanceNo: plannedattendance.value,
+            }
+      },
       boobkspace = async () => {
           //modias
-          const response = await fetch(`${apiBaseUrl}api/bookVendor`, {
-            method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            headers: {
-              'Content-Type': 'application/json',
-              'x-access-token': await user.token
-            },
-            body: JSON.stringify(getFormData())
-          });
-        },
-        getFormData = () => {
-              return {
-                name: customername.value,
-                phone: phonenumber.value,
-                email: email.value,
-                address: address.value,
-                dateNeeded: dateneeded.value,
-                bookings: Array.from(document.querySelectorAll(".vendorId")).map((e, index) => {
-                  return {serviceId: document.querySelectorAll(".serviceId")[index].value, vendorId: e.value }
-                }),
-                id: typeof user.userId === "undefined"? "": user.userId,
-                attendanceNo: plannedattendance.value,
-              }
+          try{
+            makeSpinner()
+            const response = await fetch(`${apiBaseUrl}api/bookVendor`, {
+              method: 'POST', // *GET, POST, PUT, DELETE, etc.
+              headers: {
+                'Content-Type': 'application/json',
+                'x-access-token': await user.token
+              },
+              body: JSON.stringify(getFormData())
+            });
+            if(response.status === 200 || response.status === 201) {
+              removeSpinner()
+              return response.json();
+            }
+            throw "An error occurred";
+          } catch(ex) {
+            removeSpinner()
+            toastnotification("Error", ex);
+          }
+
         },
         prepopulate = async () => {
           if (user !== null) {
@@ -182,7 +194,8 @@ $(bookingform).validate({
     event.preventDefault();
     try {
       makeSpinner();
-      console.log(getFormData());
+      // console.log(getFormData());
+      debugger
       const paystatus = await boobkspace();
       if(typeof paystatus !== "undefined"){
         if(paystatus.bookinfo.length > 0) {
